@@ -300,10 +300,12 @@ a:focus-visible, button:focus-visible{ outline:2px solid var(--wine); outline-of
 
 /* Refinamento visual: mesma identidade, escala mais compacta e preview real. */
 :root{--max-w:1040px}
-body{font-size:15.5px;line-height:1.58}
+body{font-size:15.5px;line-height:1.58;overflow-x:hidden}
 .container{padding:0 20px}
 .section{padding:56px 0}
 .hero{padding:34px 0 42px}
+.hero-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:34px;align-items:center;text-align:left;min-height:500px}
+.hero-copy h1{max-width:18ch}.hero-copy .hero-sub,.hero-copy .hero-tension{margin-left:0;margin-right:0}.hero-product{text-align:center}.hero-product .fan{margin-top:0}
 .hero .tag{margin-bottom:14px}
 .hero h1{font-size:clamp(2rem,4.25vw,2.9rem)}
 .hero-sub{margin-top:16px;font-size:17px}
@@ -323,7 +325,7 @@ body{font-size:15.5px;line-height:1.58}
 .material-viewer{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:14px;align-items:center;max-width:760px;margin:0 auto}.viewer-stage{height:500px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;display:flex;align-items:center;justify-content:center;padding:14px;overflow:hidden;cursor:zoom-in}.viewer-image{width:100%;height:100%;object-fit:contain;user-select:none}.viewer-arrow{height:44px;width:44px;border-radius:50%;border:1px solid rgba(224,193,104,.55);background:rgba(255,255,255,.06);color:var(--gold-soft);font-size:25px;cursor:pointer}.viewer-arrow:hover{background:var(--gold);color:#1d1b0e}.viewer-meta{text-align:center;margin-top:13px;color:rgba(255,255,255,.72);font:600 13px var(--sans)}.viewer-dots{display:flex;justify-content:center;gap:6px;margin-top:8px}.viewer-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3)}.viewer-dot.active{background:var(--gold-soft)}
 .lightbox{position:fixed;inset:0;z-index:20;background:rgba(10,12,18,.92);display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center;justify-items:center;padding:5vh 4vw;gap:18px}.lightbox[hidden]{display:none}.lightbox-image{max-width:85vw;max-height:90vh;width:auto;height:auto;object-fit:contain}.lightbox-close{position:absolute;right:22px;top:14px;border:0;background:transparent;color:#fff;font-size:34px;cursor:pointer}.lightbox-arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;font-size:24px;cursor:pointer}
 .stack{margin-top:28px;padding:5px 24px}.stack-row{padding:12px 0}.section-wine .btn{margin-top:24px}.faq-head{margin-bottom:26px}.faq-q{padding:14px 0}.faq-a-inner{padding-bottom:14px}.credibility p{margin-top:13px}footer{padding:25px 0}
-@media (max-width:760px){.section{padding:44px 0}.hero{padding:30px 0 38px}.hero h1{font-size:clamp(1.9rem,8vw,2.5rem)}.hero-sub{font-size:16px}.fan{max-width:360px}.fan-item{width:74px}.fan-item.fan-main{width:112px}.offer-card{grid-template-columns:1fr}.offer-card-visual{padding:24px}.offer-card-copy{padding:24px}.material-viewer{grid-template-columns:38px minmax(0,1fr) 38px;gap:8px}.viewer-arrow{width:38px;height:38px}.viewer-stage{height:460px;padding:10px}.lightbox{grid-template-columns:34px minmax(0,1fr) 34px;padding:5vh 3vw}.lightbox-image{max-width:90vw;max-height:85vh}}
+@media (max-width:760px){.section{padding:44px 0}.hero{padding:30px 0 38px}.hero-layout{display:flex;flex-direction:column;gap:22px;min-height:0;text-align:center}.hero-copy h1{font-size:clamp(1.9rem,8vw,2.5rem);margin-left:auto;margin-right:auto}.hero-copy .hero-sub,.hero-copy .hero-tension{margin-left:auto;margin-right:auto}.hero h1{font-size:clamp(1.9rem,8vw,2.5rem)}.hero-sub{font-size:16px}.fan{max-width:360px}.fan-item{width:74px}.fan-item.fan-main{width:112px}.offer-card{grid-template-columns:1fr}.offer-card-visual{padding:24px}.offer-card-copy{padding:24px}.material-viewer{grid-template-columns:38px minmax(0,1fr) 38px;gap:8px}.viewer-arrow{width:38px;height:38px}.viewer-stage{height:460px;padding:10px}.lightbox{grid-template-columns:34px minmax(0,1fr) 34px;padding:5vh 3vw}.lightbox-image{max-width:90vw;max-height:85vh}}
 @media (max-width:430px){.container{padding:0 16px}.fan{margin-top:21px}.fan-item{width:62px;margin-left:-14px}.fan-item.fan-main{width:94px}.material-viewer{grid-template-columns:34px minmax(0,1fr) 34px}.viewer-stage{height:400px}.viewer-arrow{width:34px;height:34px;font-size:20px}.preview-tab{padding:7px 13px}}
 
 </style>
@@ -346,23 +348,29 @@ body{font-size:15.5px;line-height:1.58}
 ========================================================== -->
 <header class="hero">
   <div class="container">
-    <span class="tag">Material completo de estudo bíblico</span>
-    <h1>Você acredita que a Bíblia é inerrante. Mas consegue <em>explicar por quê</em>?</h1>
-    <p class="hero-sub">Entenda o que a inerrância bíblica realmente significa e conheça os fundamentos por trás da confiabilidade das Escrituras — incluindo autoria humana, manuscritos, variantes e aparentes contradições.</p>
-    <p class="hero-tension">Você pode acreditar que a Bíblia não erra. A pergunta é: você sabe explicar por quê?</p>
+    <div class="hero-layout">
+      <div class="hero-copy">
+        <span class="tag">Material completo de estudo bíblico</span>
+        <h1>Você acredita que a Bíblia é inerrante. Mas consegue <em>explicar por quê</em>?</h1>
+        <p class="hero-sub">Entenda o que a inerrância bíblica realmente significa e conheça os fundamentos por trás da confiabilidade das Escrituras — incluindo autoria humana, manuscritos, variantes e aparentes contradições.</p>
+        <p class="hero-tension">Você pode acreditar que a Bíblia não erra. A pergunta é: você sabe explicar por quê?</p>
+      </div>
 
-    <div class="fan" aria-label="Prévia dos materiais">
-      <div class="fan-item fan-asset" style="background-image:url('inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg');"><span class="k">Infográfico</span></div>
-      <div class="fan-item fan-asset" style="background-image:url('inerrancia-assets/ebook-capa.jpg');"><span class="k">Ebook</span></div>
-      <div class="fan-item fan-asset fan-main" style="background-image:url('inerrancia-assets/ebook-capa.jpg');"><span class="k">Ebook</span></div>
-      <div class="fan-item fan-asset" style="background-image:url('inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg');"><span class="k">Infográfico</span></div>
-    </div>
-    <p class="fan-caption">Imagens ilustrativas — serão substituídas pelos prints reais do material.</p>
+      <div class="hero-product">
+        <div class="fan" aria-label="Prévia dos materiais">
+          <div class="fan-item fan-asset" style="background-image:url('inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg');"><span class="k">Infográfico</span></div>
+          <div class="fan-item fan-asset" style="background-image:url('inerrancia-assets/ebook-capa.jpg');"><span class="k">Ebook</span></div>
+          <div class="fan-item fan-asset fan-main" style="background-image:url('inerrancia-assets/ebook-capa.jpg');"><span class="k">Ebook</span></div>
+          <div class="fan-item fan-asset" style="background-image:url('inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg');"><span class="k">Infográfico</span></div>
+        </div>
+        <p class="fan-caption">Imagens ilustrativas — serão substituídas pelos prints reais do material.</p>
 
-    <div class="hero-cta">
-      <a href="#oferta" class="btn btn-wine cta-checkout">QUERO ENTENDER A INERRÂNCIA BÍBLICA</a>
-      <div class="price-mini"><span class="old">R$ 161,60</span><span class="new">R$ 27,90</span></div>
-      <p class="microcopy">Ebook + infográficos + slides + vídeo — acesso imediato</p>
+        <div class="hero-cta">
+          <a href="#oferta" class="btn btn-wine cta-checkout">QUERO ENTENDER A INERRÂNCIA BÍBLICA</a>
+          <div class="price-mini"><span class="old">R$ 161,60</span><span class="new">R$ 27,90</span></div>
+          <p class="microcopy">Ebook + infográficos + slides + vídeo — acesso imediato</p>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -558,16 +566,14 @@ body{font-size:15.5px;line-height:1.58}
     btn.addEventListener('click',()=>{const open=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(other=>{if(other!==item){other.classList.remove('open');other.querySelector('.faq-a').style.maxHeight=null;other.querySelector('.faq-q').setAttribute('aria-expanded','false')}});item.classList.toggle('open',!open);ans.style.maxHeight=open?null:ans.scrollHeight+'px';btn.setAttribute('aria-expanded',String(!open))});
   });
   const categories={ebook:{items:[1,2,3,4,5].map(n=>({src:`inerrancia-assets/ebook-page-${n}.jpg`,alt:`Página ${n} do ebook A Inerrância Bíblica`}))},infografico:{items:[
-    {src:'inerrancia-assets/infografico-1.jpg',alt:'Infográfico sobre A Inerrância Bíblica'},
-    {src:'inerrancia-assets/infografico-2.jpg',alt:'Guia sobre A Inerrância Bíblica'}
+    {src:'inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg',alt:'Infográfico sobre A Inerrância Bíblica'},
+    {src:'inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg',alt:'Guia sobre A Inerrância Bíblica'}
   ]}};
-  // The received infographic files are copied to individual assets below when available.
-  categories.infografico.items.forEach((item,i)=>{item.src=i===0?'inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg':'inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg'});
   let category='ebook', index=0;
   const tabs=[...document.querySelectorAll('.preview-tab')], viewer=document.querySelector('.material-viewer'), image=document.querySelector('.viewer-image'), counter=document.querySelector('.viewer-counter'), dots=document.querySelector('.viewer-dots');
   const lightbox=document.querySelector('.lightbox'), lightboxImage=document.querySelector('.lightbox-image');
   function render(){const items=categories[category].items;index=(index+items.length)%items.length;const item=items[index];image.src=item.src;image.alt=item.alt;counter.textContent=`${index+1} / ${items.length}`;dots.innerHTML=items.map((_,i)=>`<span class="viewer-dot ${i===index?'active':''}"></span>`).join('')}
-  function go(step){index+=step;render()}
+  function go(step){index+=step;render();if(!lightbox.hidden){lightboxImage.src=image.src;lightboxImage.alt=image.alt}}
   document.querySelector('.viewer-prev').addEventListener('click',()=>go(-1));document.querySelector('.viewer-next').addEventListener('click',()=>go(1));
   tabs.forEach(tab=>tab.addEventListener('click',()=>{category=tab.dataset.category;index=0;tabs.forEach(x=>{const active=x===tab;x.classList.toggle('active',active);x.setAttribute('aria-selected',String(active))});render()}));
   let touchStart=0, dragStart=0;
