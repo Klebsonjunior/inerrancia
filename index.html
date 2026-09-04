@@ -149,7 +149,7 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.16; margin
 ========================================================== */
 .thumbhead{ margin-bottom:28px; }
 .thumbstrip{
-  display:grid; grid-template-columns:repeat(5,1fr); gap:16px;
+  display:grid; grid-template-columns:repeat(6,1fr); gap:14px;
 }
 @media (max-width:760px){ .thumbstrip{ grid-template-columns:repeat(3,1fr); } }
 .thumb{
@@ -375,6 +375,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
       <div class="thumb"><img src="inerrancia-assets/ebook-page-4.jpg" alt="Página do estudo A Inerrância Bíblica"></div>
       <div class="thumb"><img src="inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg" alt="Infográfico A Inerrância Bíblica, o fundamento da confiança"></div>
       <div class="thumb"><img src="inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg" alt="Guia visual sobre a inerrância bíblica"></div>
+      <div class="thumb"><img src="inerrancia-assets/Inerrância_Bíblica_Fundamento_da_Verdade.jpg" alt="Infográfico Inerrância Bíblica, o fundamento da verdade"></div>
     </div>
   </div>
 </section>
@@ -458,11 +459,10 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
         </div>
       </div>
       <div class="receive-row">
-        <!-- TODO: 3º infográfico ainda não foi enviado por Jr. Assim que ele mandar o arquivo e o tema exato, trocar ícone/descrição abaixo. -->
         <div class="receive-icon">🖼</div>
         <div class="receive-body">
-          <div class="receive-top"><h4>3º Infográfico complementar</h4><span class="badge badge-incluso">Principal</span></div>
-          <p>Mais um recurso visual do estudo, para consulta rápida e revisão do conteúdo.</p>
+          <div class="receive-top"><h4>Infográfico: O Fundamento da Verdade</h4><span class="badge badge-incluso">Principal</span></div>
+          <p>Inspiração verbal plenária, inerrância vs. infalibilidade, os três pilares de defesa da doutrina e a transmissão do texto, de autógrafos a apógrafos.</p>
         </div>
       </div>
       <div class="receive-row">
@@ -636,7 +636,8 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
     estudo:{items:[2,3,4,5].map(n=>({src:`inerrancia-assets/ebook-page-${n}.jpg`,alt:`Página do estudo A Inerrância Bíblica`}))},
     infografico:{items:[
       {src:'inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg',alt:'Infográfico A Inerrância Bíblica, o fundamento da confiança'},
-      {src:'inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg',alt:'Guia visual sobre a inerrância bíblica'}
+      {src:'inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg',alt:'Guia visual sobre a inerrância bíblica'},
+      {src:'inerrancia-assets/Inerrância_Bíblica_Fundamento_da_Verdade.jpg',alt:'Infográfico Inerrância Bíblica, o fundamento da verdade'}
     ]}
   };
   let category='estudo', index=0;
