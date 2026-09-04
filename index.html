@@ -3,32 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Inerrância Bíblica | Ebook + Infográficos + Vídeo</title>
-<meta name="description" content="Entenda o que é inerrância bíblica, seus fundamentos e as principais objeções — em ebook, infográficos, slides e vídeo.">
+<title>A Inerrância Bíblica | Estudo Completo + Infográficos + Vídeo</title>
+<meta name="description" content="Entenda o que é a inerrância bíblica, seus fundamentos teológicos e como responder às principais objeções, em um estudo completo com infográficos, slides e vídeo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ==========================================================
-   NOTA: painéis marcados [[PLACEHOLDER]] usam mockups em CSS.
-   Assim que você mandar os prints reais (ebook, 3 infográficos,
-   slides, vídeo), eu troco pelas imagens sem mexer no layout.
-========================================================== */
 :root{
-  --paper:    #F7F3EA;
-  --paper-2:  #EFE6D2;
-  --ink:      #1D2333;
-  --ink-2:    #262E44;
-  --wine:     #7A1F2B;
-  --wine-dark:#5A1620;
+  --paper:    #F7F2E6;
+  --paper-2:  #EEE2C8;
+  --ink:      #1F1310;
+  --ink-2:    #2B1B16;
+  --wine:     #7A2130;
+  --wine-dark:#591722;
   --gold:     #C9A227;
-  --gold-soft:#E0C168;
-  --charcoal: #2A2723;
-  --charcoal-soft: #5B564C;
+  --gold-soft:#E3C468;
+  --charcoal: #2A211D;
+  --charcoal-soft: #6B5D50;
   --white:    #FFFFFF;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans:  'Source Sans 3', -apple-system, sans-serif;
-  --max-w: 1080px;
+  --max-w: 1120px;
 }
 *,*::before,*::after{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
@@ -39,295 +34,290 @@ body{
 }
 img{ max-width:100%; display:block; }
 a{ color:inherit; }
-.container{ max-width:var(--max-w); margin:0 auto; padding:0 22px; }
-h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.18; margin:0; color:var(--charcoal); }
-.section{ padding:80px 0; }
-@media (max-width:640px){ .section{ padding:56px 0; } }
+.container{ max-width:var(--max-w); margin:0 auto; padding:0 24px; }
+h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.16; margin:0; color:var(--charcoal); }
+.section{ padding:96px 0; }
+.section-tight{ padding:64px 0; }
+@media (max-width:640px){ .section{ padding:60px 0; } .section-tight{ padding:44px 0; } }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--wine);
+}
+.eyebrow::before{ content:""; width:22px; height:2px; background:var(--gold); display:inline-block; }
+.section-ink .eyebrow, .section-wine .eyebrow{ color:var(--gold-soft); }
 
 .tag{
   display:inline-flex; align-items:center; gap:6px;
-  background: rgba(122,31,43,0.08);
+  background: rgba(122,33,48,0.08);
   color:var(--wine);
-  border:1px solid rgba(122,31,43,0.25);
-  font-size:12.5px; font-weight:600; letter-spacing:.03em;
-  padding:6px 12px; border-radius:100px;
+  border:1px solid rgba(122,33,48,0.22);
+  font-size:12.5px; font-weight:700; letter-spacing:.03em;
+  padding:7px 14px; border-radius:100px;
 }
 .section-ink .tag, .section-wine .tag{
-  background:rgba(255,255,255,0.08); color:var(--gold-soft); border-color:rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.08); color:var(--gold-soft); border-color:rgba(255,255,255,0.22);
 }
+
+.section-ink{ background:var(--ink); color:rgba(255,255,255,0.88); }
+.section-ink h2, .section-ink h3, .section-ink h4{ color:#fff; }
+.section-wine{ background:linear-gradient(180deg, var(--wine-dark), var(--wine)); color:rgba(255,255,255,0.92); }
+.section-wine h2, .section-wine h3{ color:#fff; }
+.section-paper2{ background:var(--paper-2); }
+
+.center{ text-align:center; }
+.max-56{ max-width:56ch; margin-left:auto; margin-right:auto; }
+.max-62{ max-width:62ch; margin-left:auto; margin-right:auto; }
 
 /* Botões */
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  padding:16px 30px; font-weight:700; font-size:16px;
+  padding:17px 32px; font-weight:700; font-size:16px;
   text-decoration:none; border-radius:8px; border:none; cursor:pointer;
   transition:transform .15s ease, background-color .2s ease, box-shadow .2s ease;
 }
-.btn-wine{ background:var(--wine); color:#fff; box-shadow:0 10px 24px -8px rgba(122,31,43,0.55); }
-.btn-wine:hover{ background:var(--wine-dark); transform:translateY(-1px); }
-.btn-gold{ background:var(--gold); color:#1D1B0E; box-shadow:0 10px 24px -8px rgba(201,162,39,0.5); }
-.btn-gold:hover{ background:var(--gold-soft); transform:translateY(-1px); }
+.btn-wine{ background:var(--wine); color:#fff; box-shadow:0 12px 26px -10px rgba(122,33,48,0.6); }
+.btn-wine:hover{ background:var(--wine-dark); transform:translateY(-2px); }
+.btn-gold{ background:var(--gold); color:#241B08; box-shadow:0 12px 26px -10px rgba(201,162,39,0.55); }
+.btn-gold:hover{ background:var(--gold-soft); transform:translateY(-2px); }
 .btn-block{ width:100%; }
 .microcopy{ font-size:13px; color:var(--charcoal-soft); margin-top:12px; text-align:center; }
-.section-ink .microcopy, .section-wine .microcopy{ color:rgba(255,255,255,0.6); }
+.section-ink .microcopy, .section-wine .microcopy{ color:rgba(255,255,255,0.62); }
+.microcopy .lock{ opacity:.8; }
 
 /* ==========================================================
-   TICKER / BARRA DE OFERTA
+   TICKER
 ========================================================== */
 .ticker-wrap{
   background:var(--ink); color:#fff; overflow:hidden;
-  padding:9px 0; font-size:12.5px; letter-spacing:.04em; font-weight:600;
+  padding:10px 0; font-size:12.5px; letter-spacing:.05em; font-weight:700;
 }
-.ticker{ display:flex; gap:40px; white-space:nowrap; animation:scrollTicker 22s linear infinite; width:max-content; }
-.ticker span{ opacity:.9; }
-.ticker span::after{ content:"•"; margin-left:40px; color:var(--gold-soft); }
+.ticker{ display:flex; gap:44px; white-space:nowrap; animation:scrollTicker 24s linear infinite; width:max-content; }
+.ticker span{ opacity:.92; }
+.ticker span::after{ content:"•"; margin-left:44px; color:var(--gold-soft); }
 @keyframes scrollTicker{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
 @media (prefers-reduced-motion:reduce){ .ticker{ animation:none; } }
 
 /* ==========================================================
    HERO
 ========================================================== */
-.hero{ padding:56px 0 64px; background:var(--paper); text-align:center; }
-.hero .tag{ margin-bottom:22px; }
+.hero{ padding:64px 0 0; background:
+  radial-gradient(1100px 480px at 15% -10%, rgba(122,33,48,0.06), transparent),
+  var(--paper); }
+.hero-layout{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center; }
+@media (max-width:920px){ .hero-layout{ grid-template-columns:1fr; gap:40px; } }
+
+.hero-copy .eyebrow{ margin-bottom:20px; }
 .hero h1{
-  font-size:clamp(2.1rem, 5vw, 3.1rem);
-  max-width:18ch; margin:0 auto; letter-spacing:-0.01em;
+  font-size:clamp(2.2rem, 4.6vw, 3.35rem);
+  letter-spacing:-0.01em; max-width:17ch;
 }
 .hero h1 em{ font-style:italic; color:var(--wine); }
 .hero-sub{
-  margin:22px auto 0; max-width:56ch; font-size:18px; color:var(--charcoal-soft);
+  margin:22px 0 0; max-width:52ch; font-size:18px; color:var(--charcoal-soft);
 }
 .hero-tension{
-  margin:20px auto 0; max-width:48ch; font-family:var(--serif); font-style:italic;
-  font-size:19px; color:var(--wine);
+  margin:20px 0 0; font-family:var(--serif); font-style:italic; font-size:19px;
+  color:var(--charcoal); padding-left:18px; border-left:3px solid var(--gold);
 }
+.hero-cta{ margin-top:32px; }
+.hero-price-row{ display:flex; align-items:baseline; gap:12px; margin-top:16px; }
+.hero-price-row .old{ text-decoration:line-through; color:var(--charcoal-soft); font-size:15px; }
+.hero-price-row .new{ font-family:var(--serif); font-weight:700; font-size:28px; color:var(--wine); }
 
-/* Fan de mockups */
-.fan-caption{ text-align:center; font-size:12.5px; color:var(--charcoal-soft); opacity:.7; margin-top:14px; }
-.fan{
-  margin-top:44px; display:flex; justify-content:center; align-items:flex-end;
-  gap:0; padding:0 10px 20px;
+/* stacked visual */
+.stackviz{ position:relative; height:420px; max-width:340px; margin:0 auto; }
+.sv-item{
+  position:absolute; width:230px; height:325px; border-radius:6px;
+  background-size:cover; background-position:center;
+  box-shadow:0 30px 60px -20px rgba(31,19,16,0.45), 0 2px 0 rgba(0,0,0,0.04);
+  border:6px solid #fff;
 }
-.fan-item{
-  width:120px; aspect-ratio:3/4.1; border-radius:6px; flex-shrink:0;
-  box-shadow:0 18px 30px -12px rgba(29,35,51,0.35);
-  margin-left:-26px; position:relative;
-  display:flex; flex-direction:column; justify-content:flex-end; padding:12px;
-  color:#fff; font-family:var(--serif); font-size:13px; line-height:1.25;
-  border:1px solid rgba(255,255,255,0.25);
+.sv-info2{ left:6px; top:56px; transform:rotate(-11deg); width:200px; height:270px; opacity:.94; z-index:1; }
+.sv-info1{ right:0; top:8px; transform:rotate(9deg); width:200px; height:270px; opacity:.96; z-index:2; }
+.sv-main{ left:50%; top:34px; transform:translateX(-50%) rotate(-2deg); z-index:3; }
+.sv-badge{
+  position:absolute; bottom:-14px; left:50%; transform:translateX(-50%);
+  background:var(--wine); color:#fff; font-size:11.5px; font-weight:700; letter-spacing:.05em;
+  padding:6px 14px; border-radius:100px; white-space:nowrap; box-shadow:0 8px 18px -8px rgba(122,33,48,0.6);
 }
-.fan-item:first-child{ margin-left:0; }
-.fan-item .k{ font-family:var(--sans); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; opacity:.75; margin-bottom:4px; }
-.fan-item:nth-child(1){ background:linear-gradient(160deg,#7A1F2B,#4A1017); transform:rotate(-9deg) translateY(6px); z-index:1; }
-.fan-item:nth-child(2){ background:linear-gradient(160deg,#C9A227,#8F711A); transform:rotate(-4deg) translateY(-2px); z-index:2; color:#2A2410; }
-.fan-item:nth-child(3){ background:linear-gradient(160deg,#1D2333,#0F1320); transform:rotate(0deg) translateY(-10px); z-index:3; width:132px; }
-.fan-item:nth-child(4){ background:linear-gradient(160deg,#C9A227,#8F711A); transform:rotate(4deg) translateY(-2px); z-index:2; color:#2A2410; }
-.fan-item:nth-child(5){ background:linear-gradient(160deg,#7A1F2B,#4A1017); transform:rotate(9deg) translateY(6px); z-index:1; }
-@media (max-width:640px){
-  .fan-item{ width:84px; }
-  .fan-item:nth-child(3){ width:94px; }
-  .fan-item{ margin-left:-18px; font-size:11px; }
-}
-
-.hero-cta{ margin-top:40px; }
-.price-mini{
-  margin-top:16px; display:flex; align-items:baseline; justify-content:center; gap:10px;
-}
-.price-mini .old{ text-decoration:line-through; color:var(--charcoal-soft); font-size:15px; }
-.price-mini .new{ font-family:var(--serif); font-weight:700; font-size:26px; color:var(--wine); }
+@media (max-width:640px){ .stackviz{ height:340px; } .sv-main{ width:190px; height:260px; } .sv-info1,.sv-info2{ width:150px; height:210px; } }
 
 /* ==========================================================
-   IDENTIFICAÇÃO / DOR
+   THUMB STRIP - páginas reais
 ========================================================== */
-.section-paper2{ background:var(--paper-2); }
-.identif{ max-width:640px; margin:0 auto; text-align:center; }
-.identif h2{ font-size:clamp(1.6rem,3.2vw,2.15rem); }
-.identif-list{
-  list-style:none; margin:32px 0 0; padding:0;
-  display:flex; flex-direction:column; gap:0;
-  text-align:left; max-width:560px; margin-left:auto; margin-right:auto;
+.thumbhead{ margin-bottom:28px; }
+.thumbstrip{
+  display:grid; grid-template-columns:repeat(5,1fr); gap:16px;
 }
-.identif-list li{
-  padding:16px 4px; border-top:1px solid rgba(42,39,35,0.12);
-  font-family:var(--serif); font-size:18px; color:var(--charcoal);
+@media (max-width:760px){ .thumbstrip{ grid-template-columns:repeat(3,1fr); } }
+.thumb{
+  border-radius:6px; overflow:hidden; border:1px solid rgba(42,33,29,0.1);
+  box-shadow:0 14px 28px -18px rgba(42,33,29,0.35);
+  transition:transform .2s ease, box-shadow .2s ease; cursor:pointer; background:#fff;
 }
-.identif-list li:last-child{ border-bottom:1px solid rgba(42,39,35,0.12); }
-.identif-close{
-  margin-top:36px; font-family:var(--serif); font-style:italic; font-size:20px; color:var(--wine);
-}
+.thumb:hover{ transform:translateY(-4px); box-shadow:0 20px 34px -18px rgba(42,33,29,0.45); }
+.thumb img{ aspect-ratio:3/4.2; object-fit:cover; width:100%; }
 
 /* ==========================================================
-   O QUE VOCÊ RECEBE — badges/linhas, não cards pesados
+   BÔNUS PANELS
 ========================================================== */
-.receive-head{ text-align:center; max-width:56ch; margin:0 auto 46px; }
-.receive-head h2{ font-size:clamp(1.7rem,3.2vw,2.3rem); }
-.receive-list{ display:flex; flex-direction:column; max-width:720px; margin:0 auto; }
-.receive-row{
-  display:grid; grid-template-columns:110px 1fr; gap:20px; align-items:center;
-  padding:20px 0; border-top:1px solid rgba(42,39,35,0.12);
+.bonus-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:36px; }
+@media (max-width:720px){ .bonus-grid{ grid-template-columns:1fr; } }
+.bonus-card{
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12);
+  border-radius:12px; padding:30px 26px;
 }
-.receive-list .receive-row:last-child{ border-bottom:1px solid rgba(42,39,35,0.12); }
-.receive-row .badge{
-  font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
-  padding:6px 10px; border-radius:5px; text-align:center;
+.bonus-icon{
+  width:48px; height:48px; border-radius:10px; background:rgba(201,162,39,0.14);
+  display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:16px;
+  border:1px solid rgba(201,162,39,0.3);
 }
-.badge-incluso{ background:rgba(122,31,43,0.1); color:var(--wine); border:1px solid rgba(122,31,43,0.25); }
-.badge-bonus{ background:rgba(201,162,39,0.15); color:#8F711A; border:1px solid rgba(201,162,39,0.4); }
-.receive-row h4{ font-size:18px; font-family:var(--sans); font-weight:700; color:var(--charcoal); }
-.receive-row p{ margin:4px 0 0; font-size:14.5px; color:var(--charcoal-soft); }
-@media (max-width:560px){
-  .receive-row{ grid-template-columns:1fr; gap:8px; }
-}
+.bonus-card h4{ color:#fff; font-size:20px; margin-bottom:8px; }
+.bonus-card p{ color:rgba(255,255,255,0.68); font-size:14.5px; margin:0; }
+.bonus-tag{ display:inline-block; margin-top:14px; font-size:11.5px; font-weight:700; letter-spacing:.06em; color:var(--gold-soft); text-transform:uppercase; }
 
 /* ==========================================================
-   CARD DE PREÇO (meio da página)
+   OFFER CARD - meio da página
 ========================================================== */
 .offer-card{
-  background:#fff; border:1px solid rgba(42,39,35,0.1);
-  border-radius:16px; box-shadow:0 30px 60px -30px rgba(29,35,51,0.25);
-  display:grid; grid-template-columns:0.85fr 1.15fr; overflow:hidden;
+  display:grid; grid-template-columns:0.85fr 1.15fr; gap:0;
+  background:#fff; border-radius:16px; overflow:hidden;
+  box-shadow:0 40px 70px -30px rgba(42,33,29,0.3);
 }
 @media (max-width:760px){ .offer-card{ grid-template-columns:1fr; } }
 .offer-card-visual{
-  background:linear-gradient(160deg,#EFE6D2,#E2D5B4);
-  display:flex; align-items:center; justify-content:center; padding:40px;
+  background:linear-gradient(160deg, var(--ink), var(--ink-2));
+  display:flex; align-items:center; justify-content:center; padding:44px;
 }
-.offer-card-visual .mock{
-  width:150px; aspect-ratio:3/4.2; border-radius:6px;
-  background:linear-gradient(160deg,#7A1F2B,#4A1017);
-  box-shadow:0 24px 40px -16px rgba(29,35,51,0.4);
-  transform:rotate(-4deg);
-  color:#fff; font-family:var(--serif); display:flex; flex-direction:column;
-  justify-content:flex-end; padding:16px; font-size:14px;
-}
-.offer-card-visual .mock .k{ font-family:var(--sans); font-size:10px; letter-spacing:.08em; text-transform:uppercase; opacity:.75; margin-bottom:6px; }
-.offer-card-copy{ padding:40px 44px; }
-@media (max-width:480px){ .offer-card-copy{ padding:32px 24px; } }
-.offer-card-copy h3{ font-size:clamp(1.4rem,3vw,1.8rem); }
-.offer-checklist{ list-style:none; margin:22px 0 0; padding:0; }
-.offer-checklist li{
-  display:flex; gap:10px; padding:9px 0; font-size:15px; color:var(--charcoal);
-}
-.offer-checklist li::before{ content:"✓"; color:var(--wine); font-weight:700; }
-.offer-price-row{ margin-top:26px; display:flex; align-items:baseline; gap:12px; }
+.offer-card-visual img{ border-radius:6px; box-shadow:0 30px 50px -20px rgba(0,0,0,0.6); max-height:340px; width:auto; }
+.offer-card-copy{ padding:44px 40px; }
+.offer-checklist{ list-style:none; margin:22px 0; padding:0; }
+.offer-checklist li{ position:relative; padding-left:28px; margin-bottom:12px; font-size:15.5px; color:var(--charcoal); }
+.offer-checklist li::before{ content:"✓"; position:absolute; left:0; top:0; color:var(--wine); font-weight:700; }
+.offer-price-row{ display:flex; align-items:baseline; gap:14px; margin:22px 0; }
 .offer-price-row .old{ text-decoration:line-through; color:var(--charcoal-soft); font-size:16px; }
-.offer-price-row .new{ font-family:var(--serif); font-weight:700; font-size:32px; color:var(--wine); }
-.offer-card-copy .btn{ margin-top:24px; }
+.offer-price-row .new{ font-family:var(--serif); font-weight:700; font-size:34px; color:var(--wine); }
 
 /* ==========================================================
-   VITRINE ESCURA — "conheça o material, de verdade"
+   O QUE VOCÊ RECEBE
 ========================================================== */
-.section-ink{ background:var(--ink); color:#fff; }
-.section-ink h2{ color:#fff; }
-.section-ink p{ color:rgba(255,255,255,0.75); }
-.showcase-head{ text-align:center; max-width:56ch; margin:0 auto 50px; }
-.showcase-head h2{ font-size:clamp(1.7rem,3.4vw,2.4rem); }
-.showcase-grid{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:26px;
+.receive-list{ margin-top:44px; display:flex; flex-direction:column; gap:0; }
+.receive-row{
+  display:flex; gap:22px; align-items:flex-start; padding:26px 0;
+  border-bottom:1px solid rgba(42,33,29,0.1);
 }
-@media (max-width:760px){ .showcase-grid{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:480px){ .showcase-grid{ grid-template-columns:1fr; } }
-.showcase-item{ text-align:center; }
-.showcase-thumb{
-  aspect-ratio:3/4; border-radius:8px; margin-bottom:14px;
-  display:flex; align-items:flex-end; padding:14px;
-  color:#fff; font-family:var(--serif); font-size:14px;
-  box-shadow:0 20px 34px -16px rgba(0,0,0,0.5);
+.receive-row:first-child{ padding-top:0; }
+.receive-icon{
+  flex:0 0 auto; width:46px; height:46px; border-radius:10px;
+  background:rgba(122,33,48,0.07); border:1px solid rgba(122,33,48,0.18);
+  display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--wine);
 }
-.showcase-item h4{ font-size:15px; font-family:var(--sans); font-weight:700; color:#fff; }
-.showcase-item p{ font-size:13px; margin-top:4px; }
-.showcase-cta{ text-align:center; margin-top:48px; }
+.receive-body{ flex:1; }
+.receive-top{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.receive-body h4{ font-size:19px; }
+.receive-body p{ margin:6px 0 0; color:var(--charcoal-soft); font-size:15px; }
+.badge{ font-size:10.5px; font-weight:700; letter-spacing:.06em; padding:4px 10px; border-radius:100px; text-transform:uppercase; }
+.badge-incluso{ background:var(--wine); color:#fff; }
+.badge-bonus{ background:var(--paper-2); color:var(--charcoal-soft); border:1px solid rgba(42,33,29,0.15); }
 
 /* ==========================================================
-   OFERTA FINAL (pacote) — vinho
+   QUALIFYING / IDENTIFICAÇÃO
 ========================================================== */
-.section-wine{ background:var(--wine); color:#fff; text-align:center; }
-.section-wine h2{ color:#fff; font-size:clamp(1.9rem,4vw,2.7rem); max-width:20ch; margin:0 auto; }
-.stack{
-  max-width:520px; margin:44px auto 0; text-align:left;
-  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14);
-  border-radius:14px; padding:8px 28px;
+.identif{ max-width:760px; margin:0 auto; text-align:center; }
+.identif h2{ font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:20ch; margin:0 auto; }
+.identif-list{
+  list-style:none; margin:36px auto 0; padding:0; text-align:left;
+  max-width:600px; display:flex; flex-direction:column; gap:16px;
 }
-.stack-row{
-  display:flex; justify-content:space-between; gap:16px;
-  padding:16px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:15px;
+.identif-list li{
+  position:relative; padding-left:30px; font-size:16.5px; color:var(--charcoal);
 }
-.stack-row:first-child{ border-top:none; }
-.stack-row .v{ color:rgba(255,255,255,0.55); }
-.stack-total{
-  display:flex; justify-content:space-between; padding:18px 0 0; margin-top:6px;
-  border-top:1px solid rgba(255,255,255,0.3); font-weight:700;
+.identif-list li::before{ content:"?"; position:absolute; left:0; top:-1px; color:var(--gold); font-family:var(--serif); font-weight:700; font-size:19px; }
+.identif-close{
+  margin-top:34px; font-family:var(--serif); font-style:italic; font-size:20px; color:var(--wine);
 }
-.stack-total .v{ text-decoration:line-through; color:rgba(255,255,255,0.5); }
+
+/* ==========================================================
+   VITRINE / VIEWER
+========================================================== */
+.showcase-head{ max-width:600px; }
+.preview-tabs{ display:flex; gap:10px; margin-top:32px; }
+.preview-tab{
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:rgba(255,255,255,0.75);
+  font-weight:700; font-size:12.5px; letter-spacing:.05em; padding:11px 20px; border-radius:100px; cursor:pointer;
+  transition:background-color .2s ease, color .2s ease;
+}
+.preview-tab.active{ background:var(--gold); color:#241B08; border-color:var(--gold); }
+.material-viewer{ position:relative; margin-top:28px; display:flex; align-items:center; justify-content:center; gap:18px; }
+.viewer-stage{
+  width:min(420px, 78vw); aspect-ratio:3/4.1; border-radius:8px; overflow:hidden;
+  box-shadow:0 40px 70px -26px rgba(0,0,0,0.7); background:#111;
+}
+.viewer-image{ width:100%; height:100%; object-fit:cover; cursor:zoom-in; user-select:none; }
+.viewer-arrow{
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff;
+  width:42px; height:42px; border-radius:50%; font-size:18px; cursor:pointer;
+  flex:0 0 auto; transition:background-color .2s ease;
+}
+.viewer-arrow:hover{ background:rgba(255,255,255,0.18); }
+.viewer-meta{ display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:18px; }
+.viewer-counter{ font-size:13px; color:rgba(255,255,255,0.6); letter-spacing:.04em; }
+.viewer-dots{ display:flex; gap:6px; }
+.viewer-dot{ width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.25); }
+.viewer-dot.active{ background:var(--gold); }
+.showcase-cta{ text-align:center; margin-top:40px; }
+.lightbox{
+  position:fixed; inset:0; background:rgba(15,9,7,0.94); z-index:60;
+  display:flex; align-items:center; justify-content:center; padding:30px;
+}
+.lightbox-image{ max-width:min(720px,88vw); max-height:88vh; border-radius:6px; }
+.lightbox-close{ position:absolute; top:22px; right:26px; background:none; border:none; color:#fff; font-size:32px; cursor:pointer; line-height:1; }
+.lightbox-arrow{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; width:46px; height:46px; border-radius:50%; font-size:20px; cursor:pointer; }
+.lightbox-prev{ left:22px; } .lightbox-next{ right:22px; }
+
+/* ==========================================================
+   OFERTA FINAL
+========================================================== */
+.stack{ max-width:560px; margin:44px auto 0; }
+.stack-row{ display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.14); font-size:16px; }
+.stack-row .v{ color:rgba(255,255,255,0.7); }
+.stack-total{ display:flex; justify-content:space-between; padding:18px 0 0; font-weight:700; font-size:17px; }
 .final-price{
-  margin-top:30px; font-family:var(--serif); font-weight:700; font-size:clamp(2.2rem,5vw,3rem); color:var(--gold-soft);
+  text-align:center; font-family:var(--serif); font-weight:700; color:var(--gold-soft);
+  font-size:clamp(2.4rem,6vw,3.4rem); margin:36px 0 8px;
 }
-.final-price .per{ font-size:15px; font-family:var(--sans); font-weight:400; color:rgba(255,255,255,0.7); display:block; margin-top:4px; }
-.section-wine .btn{ margin-top:32px; }
+.final-price .per{ display:block; font-family:var(--sans); font-weight:600; font-size:14px; color:rgba(255,255,255,0.65); margin-top:6px; letter-spacing:.03em; }
+.section-wine .btn-gold{ display:flex; margin:0 auto; }
+.section-wine h2{ max-width:22ch; margin:18px auto 0; text-align:center; }
+.section-wine > .container > .center{ text-align:center; }
 
 /* ==========================================================
    FAQ
 ========================================================== */
-.faq-head{ text-align:center; max-width:52ch; margin:0 auto 40px; }
-.faq-head h2{ font-size:clamp(1.7rem,3vw,2.2rem); }
-.faq-list{ max-width:700px; margin:0 auto; }
-.faq-item{ border-top:1px solid rgba(42,39,35,0.14); }
-.faq-list .faq-item:last-child{ border-bottom:1px solid rgba(42,39,35,0.14); }
+.faq-head{ max-width:520px; }
+.faq-list{ margin-top:40px; border-top:1px solid rgba(42,33,29,0.14); }
+.faq-item{ border-bottom:1px solid rgba(42,33,29,0.14); }
 .faq-q{
-  width:100%; text-align:left; background:none; border:none; padding:20px 0;
-  font-family:var(--sans); font-weight:600; font-size:16px; color:var(--charcoal);
-  cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px;
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  padding:22px 4px; font-family:var(--serif); font-size:19px; color:var(--charcoal);
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
 }
-.faq-q .plus{ font-size:20px; color:var(--wine); flex-shrink:0; transition:transform .25s ease; }
-.faq-item.open .plus{ transform:rotate(45deg); }
-.faq-a{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
-.faq-a-inner{ padding-bottom:20px; font-size:14.5px; color:var(--charcoal-soft); max-width:60ch; }
+.faq-q .plus{ font-size:22px; color:var(--wine); transition:transform .2s ease; flex:0 0 auto; }
+.faq-item.open .faq-q .plus{ transform:rotate(45deg); }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .25s ease; }
+.faq-a-inner{ padding:0 4px 22px; color:var(--charcoal-soft); font-size:15.5px; max-width:66ch; }
 
 /* ==========================================================
    CREDIBILIDADE
 ========================================================== */
-.credibility{ max-width:640px; margin:0 auto; text-align:center; }
-.credibility h2{ font-size:clamp(1.5rem,2.8vw,1.9rem); }
-.credibility p{ margin-top:18px; color:var(--charcoal-soft); font-size:15.5px; }
+.credibility{ max-width:680px; margin:0 auto; text-align:center; }
+.credibility p{ margin-top:20px; color:var(--charcoal-soft); font-size:16px; }
 
-/* ==========================================================
-   FOOTER
-========================================================== */
-footer{ background:var(--ink); color:rgba(255,255,255,0.5); padding:36px 0; text-align:center; font-size:12.5px; }
-footer .fname{ font-family:var(--serif); font-size:15px; color:#fff; margin-bottom:6px; }
-
-a:focus-visible, button:focus-visible{ outline:2px solid var(--wine); outline-offset:3px; }
-
-/* Refinamento visual: mesma identidade, escala mais compacta e preview real. */
-:root{--max-w:1040px}
-body{font-size:15.5px;line-height:1.58;overflow-x:hidden}
-.container{padding:0 20px}
-.section{padding:56px 0}
-.hero{padding:34px 0 42px}
-.hero-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:34px;align-items:center;text-align:left;min-height:500px}
-.hero-copy h1{max-width:18ch}.hero-copy .hero-sub,.hero-copy .hero-tension{margin-left:0;margin-right:0}.hero-product{text-align:center}.hero-product .fan{margin-top:0}
-.hero .tag{margin-bottom:14px}
-.hero h1{font-size:clamp(2rem,4.25vw,2.9rem)}
-.hero-sub{margin-top:16px;font-size:17px}
-.hero-tension{margin-top:13px;font-size:17px}
-.hero-cta{margin-top:25px}
-.fan{margin-top:25px;padding-bottom:8px;max-width:480px;margin-left:auto;margin-right:auto}
-.fan-item{width:96px;aspect-ratio:3/4.1;padding:10px;font-size:12px;margin-left:-20px;background-size:cover;background-position:center}
-.fan-item.fan-main{width:150px;transform:rotate(0) translateY(-8px)}
-.fan-item:nth-child(1),.fan-item:nth-child(2),.fan-item:nth-child(4){transform:rotate(0) translateY(0)}
-.fan-item .k{background:rgba(29,35,51,.72);border-radius:3px;padding:3px 4px;opacity:1;color:#fff}
-.fan-caption{margin-top:8px;font-size:11.5px}
-.identif-list{margin-top:22px}.identif-list li{padding:11px 4px;font-size:17px}.identif-close{margin-top:23px;font-size:18px}
-.receive-head{margin-bottom:28px}.receive-row{padding:14px 0;gap:16px}.receive-row h4{font-size:17px}.receive-row p{font-size:14px}
-.offer-card{max-width:860px;margin:0 auto;grid-template-columns:.7fr 1.3fr}.offer-card-visual{padding:28px}.offer-card-visual .mock{width:138px}.offer-card-copy{padding:28px 34px}.offer-checklist{margin-top:15px}.offer-checklist li{padding:6px 0}.offer-price-row{margin-top:18px}.offer-card-copy .btn{margin-top:18px}
-.showcase-head{margin-bottom:26px}.showcase-head h2{font-size:clamp(1.65rem,3.2vw,2.25rem)}
-.preview-tabs{display:flex;justify-content:center;gap:8px;margin:0 auto 18px}.preview-tab{border:1px solid rgba(224,193,104,.42);background:transparent;color:var(--gold-soft);padding:8px 18px;border-radius:999px;font:700 11px var(--sans);letter-spacing:.08em;cursor:pointer}.preview-tab.active,.preview-tab:hover{background:var(--gold);border-color:var(--gold);color:#1d1b0e}
-.material-viewer{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:14px;align-items:center;max-width:760px;margin:0 auto}.viewer-stage{height:500px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;display:flex;align-items:center;justify-content:center;padding:14px;overflow:hidden;cursor:zoom-in}.viewer-image{width:100%;height:100%;object-fit:contain;user-select:none}.viewer-arrow{height:44px;width:44px;border-radius:50%;border:1px solid rgba(224,193,104,.55);background:rgba(255,255,255,.06);color:var(--gold-soft);font-size:25px;cursor:pointer}.viewer-arrow:hover{background:var(--gold);color:#1d1b0e}.viewer-meta{text-align:center;margin-top:13px;color:rgba(255,255,255,.72);font:600 13px var(--sans)}.viewer-dots{display:flex;justify-content:center;gap:6px;margin-top:8px}.viewer-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3)}.viewer-dot.active{background:var(--gold-soft)}
-.lightbox{position:fixed;inset:0;z-index:20;background:rgba(10,12,18,.92);display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center;justify-items:center;padding:5vh 4vw;gap:18px}.lightbox[hidden]{display:none}.lightbox-image{max-width:85vw;max-height:90vh;width:auto;height:auto;object-fit:contain}.lightbox-close{position:absolute;right:22px;top:14px;border:0;background:transparent;color:#fff;font-size:34px;cursor:pointer}.lightbox-arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;font-size:24px;cursor:pointer}
-.stack{margin-top:28px;padding:5px 24px}.stack-row{padding:12px 0}.section-wine .btn{margin-top:24px}.faq-head{margin-bottom:26px}.faq-q{padding:14px 0}.faq-a-inner{padding-bottom:14px}.credibility p{margin-top:13px}footer{padding:25px 0}
-@media (max-width:760px){.section{padding:44px 0}.hero{padding:30px 0 38px}.hero-layout{display:flex;flex-direction:column;gap:22px;min-height:0;text-align:center}.hero-copy h1{font-size:clamp(1.9rem,8vw,2.5rem);margin-left:auto;margin-right:auto}.hero-copy .hero-sub,.hero-copy .hero-tension{margin-left:auto;margin-right:auto}.hero h1{font-size:clamp(1.9rem,8vw,2.5rem)}.hero-sub{font-size:16px}.fan{max-width:360px}.fan-item{width:74px}.fan-item.fan-main{width:112px}.offer-card{grid-template-columns:1fr}.offer-card-visual{padding:24px}.offer-card-copy{padding:24px}.material-viewer{grid-template-columns:38px minmax(0,1fr) 38px;gap:8px}.viewer-arrow{width:38px;height:38px}.viewer-stage{height:460px;padding:10px}.lightbox{grid-template-columns:34px minmax(0,1fr) 34px;padding:5vh 3vw}.lightbox-image{max-width:90vw;max-height:85vh}}
-@media (max-width:430px){.container{padding:0 16px}.fan{margin-top:21px}.fan-item{width:62px;margin-left:-14px}.fan-item.fan-main{width:94px}.material-viewer{grid-template-columns:34px minmax(0,1fr) 34px}.viewer-stage{height:400px}.viewer-arrow{width:34px;height:34px;font-size:20px}.preview-tab{padding:7px 13px}}
-
+footer{ background:var(--ink); color:rgba(255,255,255,0.55); padding:36px 0; font-size:13px; }
+footer .container{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size:16px; }
 </style>
 </head>
 <body>
@@ -336,10 +326,10 @@ body{font-size:15.5px;line-height:1.58;overflow-x:hidden}
   <div class="ticker">
     <span>OFERTA POR TEMPO LIMITADO</span>
     <span>ACESSO IMEDIATO APÓS A COMPRA</span>
-    <span>EBOOK + 3 INFOGRÁFICOS + SLIDES + VÍDEO</span>
+    <span>ESTUDO COMPLETO + 3 INFOGRÁFICOS + VÍDEO + SLIDES</span>
     <span>OFERTA POR TEMPO LIMITADO</span>
     <span>ACESSO IMEDIATO APÓS A COMPRA</span>
-    <span>EBOOK + 3 INFOGRÁFICOS + SLIDES + VÍDEO</span>
+    <span>ESTUDO COMPLETO + 3 INFOGRÁFICOS + VÍDEO + SLIDES</span>
   </div>
 </div>
 
@@ -350,25 +340,23 @@ body{font-size:15.5px;line-height:1.58;overflow-x:hidden}
   <div class="container">
     <div class="hero-layout">
       <div class="hero-copy">
-        <span class="tag">Material completo de estudo bíblico</span>
-        <h1>Você acredita que a Bíblia é inerrante. Mas consegue <em>explicar por quê</em>?</h1>
-        <p class="hero-sub">Entenda o que a inerrância bíblica realmente significa e conheça os fundamentos por trás da confiabilidade das Escrituras — incluindo autoria humana, manuscritos, variantes e aparentes contradições.</p>
-        <p class="hero-tension">Você pode acreditar que a Bíblia não erra. A pergunta é: você sabe explicar por quê?</p>
+        <span class="eyebrow">Material de estudo bíblico</span>
+        <h1>Você diz que a Bíblia é <em>inerrante</em>. Mas sabe explicar por quê?</h1>
+        <p class="hero-sub">Um estudo completo sobre a doutrina da inerrância bíblica: seus fundamentos teológicos, sua base histórica e as respostas às objeções mais comuns, como manuscritos, variantes e aparentes contradições.</p>
+        <p class="hero-tension">É fácil afirmar que a Bíblia não erra. Difícil é sustentar essa afirmação diante da primeira pergunta difícil.</p>
+        <div class="hero-cta">
+          <a href="#oferta" class="btn btn-wine cta-checkout">QUERO ENTENDER A INERRÂNCIA BÍBLICA</a>
+          <div class="hero-price-row"><span class="old">De R$ 161,60</span><span class="new">por R$ 27,90</span></div>
+          <p class="microcopy">Acesso imediato por e-mail · Garantia de 7 dias</p>
+        </div>
       </div>
 
       <div class="hero-product">
-        <div class="fan" aria-label="Prévia dos materiais">
-          <div class="fan-item fan-asset" style="background-image:url('inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg');"><span class="k">Infográfico</span></div>
-          <div class="fan-item fan-asset" style="background-image:url('inerrancia-assets/ebook-capa.jpg');"><span class="k">Ebook</span></div>
-          <div class="fan-item fan-asset fan-main" style="background-image:url('inerrancia-assets/ebook-capa.jpg');"><span class="k">Ebook</span></div>
-          <div class="fan-item fan-asset" style="background-image:url('inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg');"><span class="k">Infográfico</span></div>
-        </div>
-        <p class="fan-caption">Imagens ilustrativas — serão substituídas pelos prints reais do material.</p>
-
-        <div class="hero-cta">
-          <a href="#oferta" class="btn btn-wine cta-checkout">QUERO ENTENDER A INERRÂNCIA BÍBLICA</a>
-          <div class="price-mini"><span class="old">R$ 161,60</span><span class="new">R$ 27,90</span></div>
-          <p class="microcopy">Ebook + infográficos + slides + vídeo — acesso imediato</p>
+        <div class="stackviz">
+          <div class="sv-item sv-info2" style="background-image:url('inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg');"></div>
+          <div class="sv-item sv-info1" style="background-image:url('inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg');"></div>
+          <div class="sv-item sv-main" style="background-image:url('inerrancia-assets/ebook-capa.jpg');"></div>
+          <span class="sv-badge">Estudo + 3 infográficos</span>
         </div>
       </div>
     </div>
@@ -376,69 +364,142 @@ body{font-size:15.5px;line-height:1.58;overflow-x:hidden}
 </header>
 
 <!-- ==========================================================
+     PÁGINAS REAIS DO MATERIAL
+========================================================== -->
+<section class="section-tight">
+  <div class="container">
+    <p class="center microcopy" style="margin-bottom:0;">Páginas e infográficos reais do material que você recebe</p>
+    <div class="thumbstrip" style="margin-top:22px;">
+      <div class="thumb"><img src="inerrancia-assets/ebook-page-2.jpg" alt="Sumário do estudo A Inerrância Bíblica"></div>
+      <div class="thumb"><img src="inerrancia-assets/ebook-page-3.jpg" alt="Página do estudo A Inerrância Bíblica"></div>
+      <div class="thumb"><img src="inerrancia-assets/ebook-page-4.jpg" alt="Página do estudo A Inerrância Bíblica"></div>
+      <div class="thumb"><img src="inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg" alt="Infográfico A Inerrância Bíblica, o fundamento da confiança"></div>
+      <div class="thumb"><img src="inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg" alt="Guia visual sobre a inerrância bíblica"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     BÔNUS INCLUSOS
+========================================================== -->
+<section class="section-ink section-tight">
+  <div class="container">
+    <span class="tag">Bônus inclusos</span>
+    <h2 style="margin-top:18px; max-width:20ch;">Além do estudo e dos infográficos, você também recebe</h2>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-icon">▶</div>
+        <h4>Vídeo explicativo</h4>
+        <p>Uma aula em vídeo com o resumo do conteúdo do estudo, para revisar sem precisar reler tudo.</p>
+        <span class="bonus-tag">Bônus 1</span>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-icon">▤</div>
+        <h4>Apresentação de slides</h4>
+        <p>Pronta para levar o estudo a um grupo, célula ou classe, sem precisar montar nada do zero.</p>
+        <span class="bonus-tag">Bônus 2</span>
+      </div>
+    </div>
+    <div class="center" style="margin-top:40px;">
+      <a href="#oferta" class="btn btn-gold cta-checkout">Quero entender de uma vez</a>
+      <p class="microcopy">De R$ 161,60 por R$ 27,90 · Garantia de 7 dias</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
      IDENTIFICAÇÃO / DOR
 ========================================================== -->
-<section class="section section-paper2">
+<section class="section">
   <div class="container identif">
-    <h2>Você acredita na inerrância bíblica. Mas sabe exatamente o que está afirmando?</h2>
+    <span class="eyebrow">Um estudo direto, sem enrolação</span>
+    <h2 style="margin-top:18px;">Você acredita na inerrância bíblica. Mas sabe exatamente o que está afirmando?</h2>
     <ul class="identif-list">
-      <li>Se a Bíblia foi escrita por homens, como pode ser inerrante?</li>
-      <li>Se os manuscritos originais não existem mais, o que exatamente é inerrante?</li>
-      <li>Se existem variantes entre manuscritos, isso significa que o texto foi alterado?</li>
-      <li>Diferenças entre os Evangelhos são contradições?</li>
-      <li>Inerrância e infalibilidade são a mesma coisa?</li>
+      <li>Se a Bíblia foi escrita por homens, como ela pode ser inerrante?</li>
+      <li>Os manuscritos originais não existem mais. Então, o que exatamente é inerrante?</li>
+      <li>Existem variantes entre os manuscritos. Isso significa que o texto foi alterado?</li>
+      <li>Diferenças entre relatos dos Evangelhos são contradições?</li>
+      <li>Inerrância, infalibilidade e inspiração são a mesma coisa?</li>
     </ul>
-    <p class="identif-close">É fácil afirmar que a Bíblia é inerrante.<br>Mais difícil é compreender por que acreditamos nisso.</p>
+    <p class="identif-close">É fácil afirmar que a Bíblia é inerrante. Mais difícil é entender, com clareza, por que isso é verdade.</p>
+    <div style="margin-top:34px;">
+      <a href="#oferta" class="btn btn-wine cta-checkout">Quero resolver isso agora</a>
+    </div>
   </div>
 </section>
 
 <!-- ==========================================================
      O QUE VOCÊ RECEBE
 ========================================================== -->
-<section class="section">
+<section class="section section-paper2">
   <div class="container">
-    <div class="receive-head">
-      <span class="tag">Tudo incluso no acesso</span>
-      <h2 style="margin-top:16px;">O que você recebe</h2>
-    </div>
+    <span class="tag">Tudo incluso no acesso</span>
+    <h2 style="margin-top:18px;">O que você recebe</h2>
     <div class="receive-list">
       <div class="receive-row">
-        <span class="badge badge-incluso">Principal</span>
-        <div><h4>Ebook — A Inerrância Bíblica</h4><p>8 capítulos, do fundamento da doutrina às principais objeções.</p></div>
+        <div class="receive-icon">📖</div>
+        <div class="receive-body">
+          <div class="receive-top"><h4>Estudo Completo: A Inerrância Bíblica</h4><span class="badge badge-incluso">Principal</span></div>
+          <p>8 capítulos, do que significa dizer que a Bíblia é a Palavra de Deus até as principais objeções à inerrância.</p>
+        </div>
       </div>
       <div class="receive-row">
-        <span class="badge badge-bonus">Bônus 1</span>
-        <div><h4>3 Infográficos visuais</h4><p>Resumo do estudo, objeções ponto a ponto e linha do tempo do cânon — para consulta rápida.</p></div>
+        <div class="receive-icon">🖼</div>
+        <div class="receive-body">
+          <div class="receive-top"><h4>Infográfico: O Fundamento da Confiança</h4><span class="badge badge-incluso">Principal</span></div>
+          <p>Os 5 pontos centrais da doutrina, ilustrados, para visualizar o argumento de forma rápida.</p>
+        </div>
       </div>
       <div class="receive-row">
-        <span class="badge badge-bonus">Bônus 2</span>
-        <div><h4>Apresentação de slides</h4><p>Pronta para levar o estudo a um grupo, célula ou classe.</p></div>
+        <div class="receive-icon">🖼</div>
+        <div class="receive-body">
+          <div class="receive-top"><h4>Guia Visual: Termos, Fundamentos e Objeções</h4><span class="badge badge-incluso">Principal</span></div>
+          <p>Diferença entre inspiração, infalibilidade e inerrância, os três fundamentos da doutrina e respostas às objeções mais comuns.</p>
+        </div>
       </div>
       <div class="receive-row">
-        <span class="badge badge-bonus">Bônus 3</span>
-        <div><h4>Vídeo explicativo</h4><p>Aula em vídeo com o resumo do conteúdo do estudo.</p></div>
+        <!-- TODO: 3º infográfico ainda não foi enviado por Jr. Assim que ele mandar o arquivo e o tema exato, trocar ícone/descrição abaixo. -->
+        <div class="receive-icon">🖼</div>
+        <div class="receive-body">
+          <div class="receive-top"><h4>3º Infográfico complementar</h4><span class="badge badge-incluso">Principal</span></div>
+          <p>Mais um recurso visual do estudo, para consulta rápida e revisão do conteúdo.</p>
+        </div>
+      </div>
+      <div class="receive-row">
+        <div class="receive-icon">▶</div>
+        <div class="receive-body">
+          <div class="receive-top"><h4>Vídeo explicativo</h4><span class="badge badge-bonus">Bônus</span></div>
+          <p>Aula em vídeo com o resumo do conteúdo do estudo.</p>
+        </div>
+      </div>
+      <div class="receive-row">
+        <div class="receive-icon">▤</div>
+        <div class="receive-body">
+          <div class="receive-top"><h4>Apresentação de slides</h4><span class="badge badge-bonus">Bônus</span></div>
+          <p>Pronta para levar o estudo a um grupo, célula ou classe.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================
-     CARD DE PREÇO — meio da página
+     CARD DE PREÇO (meio da página)
 ========================================================== -->
-<section class="section section-paper2">
+<section class="section">
   <div class="container">
     <div class="offer-card">
       <div class="offer-card-visual">
-        <!-- [[PLACEHOLDER]] trocar pela capa real do ebook -->
-        <div class="mock" style="background-image:url('inerrancia-assets/ebook-capa.jpg');background-size:cover;background-position:center;"><span class="k">Ebook</span>A Inerrância<br>Bíblica</div>
+        <img src="inerrancia-assets/ebook-capa.jpg" alt="Capa do estudo A Inerrância Bíblica">
       </div>
       <div class="offer-card-copy">
-        <h3>Garanta seu acesso agora</h3>
+        <span class="eyebrow">Garanta seu acesso</span>
+        <h3 style="margin-top:14px; font-size:26px;">Tudo o que você precisa para entender e explicar a inerrância</h3>
         <ul class="offer-checklist">
-          <li>Ebook completo (8 capítulos)</li>
+          <li>Estudo completo (8 capítulos)</li>
           <li>3 infográficos visuais</li>
-          <li>Apresentação de slides</li>
           <li>Vídeo explicativo</li>
+          <li>Apresentação de slides</li>
           <li>Acesso imediato após a confirmação</li>
         </ul>
         <div class="offer-price-row"><span class="old">R$ 161,60</span><span class="new">R$ 27,90</span></div>
@@ -450,27 +511,27 @@ body{font-size:15.5px;line-height:1.58;overflow-x:hidden}
 </section>
 
 <!-- ==========================================================
-     VITRINE — "conheça o material, de verdade"
+     VITRINE
 ========================================================== -->
-<section class="section section-ink">
+<section class="section-ink">
   <div class="container">
     <div class="showcase-head">
       <span class="tag">Conheça o material</span>
-      <h2 style="margin-top:16px;">Veja o que está incluído no material</h2>
-      <p style="margin-top:14px;">Um material pensado para ser lido, visualizado e consultado depois.</p>
+      <h2 style="margin-top:18px;">Veja o que está incluído, de verdade</h2>
+      <p style="margin-top:14px; color:rgba(255,255,255,0.68);">Um material pensado para ser lido, visualizado e consultado depois.</p>
     </div>
     <div class="preview-tabs" role="tablist" aria-label="Categorias do material">
-      <button class="preview-tab active" type="button" role="tab" aria-selected="true" data-category="ebook">EBOOK</button>
+      <button class="preview-tab active" type="button" role="tab" aria-selected="true" data-category="estudo">ESTUDO</button>
       <button class="preview-tab" type="button" role="tab" aria-selected="false" data-category="infografico">INFOGRÁFICOS</button>
     </div>
-    <div class="material-viewer" data-category="ebook">
+    <div class="material-viewer" data-category="estudo">
       <button class="viewer-arrow viewer-prev" type="button" aria-label="Página anterior">←</button>
       <div class="viewer-stage">
-        <img class="viewer-image" src="inerrancia-assets/ebook-page-1.jpg" alt="Página 1 do ebook A Inerrância Bíblica" draggable="false">
+        <img class="viewer-image" src="inerrancia-assets/ebook-page-2.jpg" alt="Página do estudo A Inerrância Bíblica" draggable="false">
       </div>
       <button class="viewer-arrow viewer-next" type="button" aria-label="Próxima página">→</button>
     </div>
-    <div class="viewer-meta"><span class="viewer-counter">1 / 5</span><div class="viewer-dots" aria-hidden="true"></div></div>
+    <div class="viewer-meta"><span class="viewer-counter">1 / 4</span><div class="viewer-dots" aria-hidden="true"></div></div>
     <div class="lightbox" hidden aria-hidden="true">
       <button class="lightbox-close" type="button" aria-label="Fechar visualização ampliada">×</button>
       <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Imagem anterior">←</button>
@@ -484,25 +545,27 @@ body{font-size:15.5px;line-height:1.58;overflow-x:hidden}
 </section>
 
 <!-- ==========================================================
-     OFERTA FINAL — pacote
+     OFERTA FINAL
 ========================================================== -->
 <section id="oferta" class="section section-wine">
   <div class="container">
-    <span class="tag">Oferta completa</span>
-    <h2 style="margin-top:18px;">Tudo isso para você entender, com clareza, o que já afirma acreditar.</h2>
+    <div class="center">
+      <span class="tag">Oferta completa</span>
+      <h2>Tudo isso para você entender, com clareza, o que já afirma acreditar.</h2>
+    </div>
 
     <div class="stack">
-      <div class="stack-row"><span>Ebook — A Inerrância Bíblica</span><span class="v">R$ 29,90</span></div>
+      <div class="stack-row"><span>Estudo Completo: A Inerrância Bíblica</span><span class="v">R$ 29,90</span></div>
       <div class="stack-row"><span>3 Infográficos visuais</span><span class="v">R$ 47,70</span></div>
-      <div class="stack-row"><span>Apresentação de slides</span><span class="v">R$ 37,00</span></div>
       <div class="stack-row"><span>Vídeo explicativo</span><span class="v">R$ 47,00</span></div>
+      <div class="stack-row"><span>Apresentação de slides</span><span class="v">R$ 37,00</span></div>
       <div class="stack-total"><span>Valor total</span><span class="v">R$ 161,60</span></div>
     </div>
 
     <div class="final-price">R$ 27,90<span class="per">pagamento único</span></div>
 
     <a href="#" class="btn btn-gold cta-checkout">Quero acessar o material completo</a>
-    <p class="microcopy">Acesso imediato após a confirmação do pagamento</p>
+    <p class="microcopy center">Acesso imediato após a confirmação do pagamento · Garantia de 7 dias</p>
   </div>
 </section>
 
@@ -513,28 +576,32 @@ body{font-size:15.5px;line-height:1.58;overflow-x:hidden}
   <div class="container">
     <div class="faq-head">
       <span class="tag">Perguntas frequentes</span>
-      <h2 style="margin-top:16px;">Dúvidas comuns</h2>
+      <h2 style="margin-top:18px;">Dúvidas comuns</h2>
     </div>
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Preciso ter conhecimento de teologia para acompanhar?<span class="plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Não. Os principais conceitos são apresentados desde a base e desenvolvidos progressivamente ao longo do material.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Não. Os conceitos são apresentados desde a base, com linguagem acessível, e desenvolvidos progressivamente ao longo do material.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">O que exatamente está incluso na compra?<span class="plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">O ebook completo (8 capítulos), 3 infográficos visuais, uma apresentação de slides e um vídeo explicativo — tudo liberado no mesmo acesso.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">O estudo completo (8 capítulos), 3 infográficos visuais, um vídeo explicativo e uma apresentação de slides, tudo liberado no mesmo acesso.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Vou receber um material físico?<span class="plus">+</span></button>
+        <button class="faq-q" aria-expanded="false">Vou receber algo físico?<span class="plus">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">Não. Todo o conteúdo é digital, para acessar no celular, tablet ou computador.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Como recebo o material depois da compra?<span class="plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">As instruções de acesso são enviadas automaticamente após a confirmação do pagamento.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">As instruções de acesso são enviadas automaticamente por e-mail após a confirmação do pagamento.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">O material aborda as principais objeções à inerrância?<span class="plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Sim. Um dos eixos centrais do ebook e um dos infográficos são dedicados especificamente às objeções mais comuns.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Um capítulo inteiro do estudo e um dos infográficos são dedicados especificamente às objeções mais comuns, como manuscritos, variantes e contradições aparentes.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Se eu não gostar, posso pedir reembolso?<span class="plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Você tem 7 dias de garantia a partir da compra para pedir reembolso, sem burocracia.</div></div>
       </div>
     </div>
   </div>
@@ -545,31 +612,34 @@ body{font-size:15.5px;line-height:1.58;overflow-x:hidden}
 ========================================================== -->
 <section class="section section-paper2">
   <div class="container credibility">
-    <h2>Como este material foi construído</h2>
-    <p>O conteúdo foi organizado a partir do estudo da doutrina da inerrância bíblica desde seus fundamentos teológicos até as objeções mais recorrentes, reunindo em um único material o texto, os recursos visuais e o vídeo de apoio para facilitar tanto a leitura quanto a revisão posterior.</p>
+    <span class="eyebrow">Como este material foi construído</span>
+    <p>O conteúdo foi organizado a partir do estudo da doutrina da inerrância bíblica desde seus fundamentos teológicos, bíblicos e históricos, até as objeções mais recorrentes levantadas contra ela. O objetivo não foi produzir um material apologético defensivo, mas reunir, em um único lugar, texto, recursos visuais e vídeo de apoio, para que você entenda o que está afirmando quando diz que confia nas Escrituras.</p>
   </div>
 </section>
 
 <footer>
   <div class="container">
     <div class="fname">A Inerrância Bíblica</div>
-    <div>&copy; <span id="year"></span> — Todos os direitos reservados.</div>
+    <div>&copy; <span id="year"></span>. Todos os direitos reservados.</div>
   </div>
 </footer>
 
 <script>
-  const CHECKOUT_URL = "#oferta";
+  const CHECKOUT_URL = "#oferta"; // TODO: trocar pelo link real do Kiwify
   document.querySelectorAll('.cta-checkout').forEach(el => el.setAttribute('href', CHECKOUT_URL));
   document.getElementById('year').textContent = new Date().getFullYear();
   document.querySelectorAll('.faq-item').forEach(item => {
     const btn=item.querySelector('.faq-q'), ans=item.querySelector('.faq-a');
     btn.addEventListener('click',()=>{const open=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(other=>{if(other!==item){other.classList.remove('open');other.querySelector('.faq-a').style.maxHeight=null;other.querySelector('.faq-q').setAttribute('aria-expanded','false')}});item.classList.toggle('open',!open);ans.style.maxHeight=open?null:ans.scrollHeight+'px';btn.setAttribute('aria-expanded',String(!open))});
   });
-  const categories={ebook:{items:[1,2,3,4,5].map(n=>({src:`inerrancia-assets/ebook-page-${n}.jpg`,alt:`Página ${n} do ebook A Inerrância Bíblica`}))},infografico:{items:[
-    {src:'inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg',alt:'Infográfico sobre A Inerrância Bíblica'},
-    {src:'inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg',alt:'Guia sobre A Inerrância Bíblica'}
-  ]}};
-  let category='ebook', index=0;
+  const categories={
+    estudo:{items:[2,3,4,5].map(n=>({src:`inerrancia-assets/ebook-page-${n}.jpg`,alt:`Página do estudo A Inerrância Bíblica`}))},
+    infografico:{items:[
+      {src:'inerrancia-assets/Infográfico_sobre_a_Inerrância_Bíblica.jpg',alt:'Infográfico A Inerrância Bíblica, o fundamento da confiança'},
+      {src:'inerrancia-assets/Guia_sobre_a_Inerrância_Bíblica.jpg',alt:'Guia visual sobre a inerrância bíblica'}
+    ]}
+  };
+  let category='estudo', index=0;
   const tabs=[...document.querySelectorAll('.preview-tab')], viewer=document.querySelector('.material-viewer'), image=document.querySelector('.viewer-image'), counter=document.querySelector('.viewer-counter'), dots=document.querySelector('.viewer-dots');
   const lightbox=document.querySelector('.lightbox'), lightboxImage=document.querySelector('.lightbox-image');
   function render(){const items=categories[category].items;index=(index+items.length)%items.length;const item=items[index];image.src=item.src;image.alt=item.alt;counter.textContent=`${index+1} / ${items.length}`;dots.innerHTML=items.map((_,i)=>`<span class="viewer-dot ${i===index?'active':''}"></span>`).join('')}
