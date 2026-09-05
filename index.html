@@ -388,6 +388,41 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.16; margin
 .author-caption p:last-child{ margin-bottom:0; }
 .author-caption strong{ color:var(--charcoal); }
 
+/* ==========================================================
+   OUTROS ESTUDOS (VITRINE)
+========================================================== */
+.shop-grid{ margin-top:44px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+@media (max-width:920px){ .shop-grid{ grid-template-columns:1fr; max-width:400px; margin-left:auto; margin-right:auto; } }
+.shop-card{
+  background:#fff; border-radius:14px; overflow:hidden;
+  border:1px solid rgba(42,33,29,0.12);
+  box-shadow:0 24px 46px -28px rgba(31,19,16,0.35);
+  display:flex; flex-direction:column;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.shop-card:hover{ transform:translateY(-4px); box-shadow:0 30px 54px -26px rgba(31,19,16,0.45); }
+.shop-browserbar{
+  display:flex; align-items:center; gap:6px; padding:10px 12px;
+  background:var(--ink); border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.shop-browserbar .dot{ width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.25); }
+.shop-browserbar .dot:first-child{ background:#E5615A; }
+.shop-browserbar .dot:nth-child(2){ background:#E3B341; }
+.shop-browserbar .dot:nth-child(3){ background:#3FB65C; }
+.shop-url{ margin-left:8px; font-size:11.5px; color:rgba(255,255,255,0.5); font-family:var(--sans); letter-spacing:.02em; }
+.shop-cover{ aspect-ratio:4/3; background:var(--paper-2); overflow:hidden; }
+.shop-cover img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
+.shop-cover-placeholder{
+  display:flex; align-items:center; justify-content:center; color:var(--gold-soft);
+  background:linear-gradient(160deg, var(--ink), var(--ink-2));
+}
+.shop-body{ padding:22px 22px 24px; display:flex; flex-direction:column; flex:1; }
+.shop-body h4{ font-size:19px; }
+.shop-body p{ margin:8px 0 0; color:var(--charcoal-soft); font-size:15px; flex:1; }
+.shop-price{ display:flex; align-items:baseline; gap:10px; margin:16px 0; }
+.shop-price .old{ text-decoration:line-through; color:var(--charcoal-soft); font-size:14px; }
+.shop-price .new{ font-family:var(--serif); font-weight:700; font-size:19px; color:var(--wine); }
+
 footer{ background:var(--ink); color:rgba(255,255,255,0.55); padding:36px 0; font-size:14.5px; }
 footer .container{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
 footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size:16px; }
@@ -689,6 +724,57 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
         <p>A página existe para isso: pegar um tema denso da teologia sistemática e entregar com clareza, sem simplificar a ponto de distorcer. É esse mesmo cuidado que está em cada página, infográfico e slide deste estudo.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     OUTROS ESTUDOS (VITRINE / ORDER BUMP)
+========================================================== -->
+<section class="section section-paper2 reveal">
+  <div class="container">
+    <div class="center max-62">
+      <span class="tag">Mais estudos do @ensinopalavraviva</span>
+      <h2 style="margin-top:18px;">Conheça também nossos outros estudos</h2>
+      <p style="margin-top:14px; color:var(--charcoal-soft);">Você já está aprofundando um tema denso — esses três completam o conjunto de estudos da página.</p>
+    </div>
+
+    <div class="shop-grid">
+      <div class="shop-card">
+        <div class="shop-browserbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="shop-url">ensinopalavraviva.vercel.app</span></div>
+        <div class="shop-cover"><img src="https://ensinopalavraviva.vercel.app/assets/prints/premium/premium_1_capa.webp" alt="Capa do estudo Calvinismo e Arminianismo" loading="lazy"></div>
+        <div class="shop-body">
+          <h4>Calvinismo x Arminianismo</h4>
+          <p>Entenda as diferenças entre Calvinismo e Arminianismo de forma prática, ponto a ponto.</p>
+          <div class="shop-price"><span class="old">R$ 87,00</span><span class="new">R$ 16,90</span></div>
+          <a href="https://ensinopalavraviva.vercel.app/" target="_blank" rel="noopener" class="btn btn-cta-light btn-block">Conhecer estudo</a>
+        </div>
+      </div>
+
+      <div class="shop-card">
+        <div class="shop-browserbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="shop-url">enspalavraviva.vercel.app</span></div>
+        <div class="shop-cover"><img src="https://enspalavraviva.vercel.app/capa.jpg" alt="Capa do estudo Cessacionismo, Providencialismo e Continuísmo" loading="lazy"></div>
+        <div class="shop-body">
+          <h4>Dons Espirituais</h4>
+          <p>Cessacionismo, Providencialismo e Continuísmo — as 3 posições lado a lado, sem caricatura.</p>
+          <div class="shop-price"><span class="old">R$ 97,00</span><span class="new">a partir de R$ 14,90</span></div>
+          <a href="https://enspalavraviva.vercel.app/" target="_blank" rel="noopener" class="btn btn-cta-light btn-block">Conhecer estudo</a>
+        </div>
+      </div>
+
+      <div class="shop-card">
+        <div class="shop-browserbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="shop-url">menoresprofetas.vercel.app</span></div>
+        <div class="shop-cover shop-cover-placeholder">
+          <svg viewBox="0 0 24 24" width="52" height="52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h11a2 2 0 0 1 2 2v13a1 1 0 0 1-1.6.8L15 18H8"/><path d="M6 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2"/><path d="M9 8h6M9 11.5h6M9 15h4"/></svg>
+        </div>
+        <div class="shop-body">
+          <h4>Mapa dos 12 Profetas Menores</h4>
+          <p>Um guia de estudo sobre os livros dos Profetas Menores.</p>
+          <a href="https://menoresprofetas.vercel.app/" target="_blank" rel="noopener" class="btn btn-cta-light btn-block">Conhecer estudo</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="microcopy" style="margin-top:28px;">Preços exibidos são os praticados em cada página no momento desta publicação e podem mudar sem aviso.</p>
   </div>
 </section>
 
