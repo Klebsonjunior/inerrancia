@@ -505,7 +505,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
     <div class="material-viewer" data-category="estudo">
       <button class="viewer-arrow viewer-prev" type="button" aria-label="Página anterior">←</button>
       <div class="viewer-stage">
-        <img class="viewer-image viewer-blurred" src="inerrancia-assets/ebook-page-1.jpg" alt="Página do estudo A Inerrância Bíblica" draggable="false">
+        <img class="viewer-image" src="inerrancia-assets/ebook-page-1.jpg" alt="Página do estudo A Inerrância Bíblica" draggable="false">
       </div>
       <button class="viewer-arrow viewer-next" type="button" aria-label="Próxima página">→</button>
     </div>
@@ -513,7 +513,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
     <div class="lightbox" hidden aria-hidden="true">
       <button class="lightbox-close" type="button" aria-label="Fechar visualização ampliada">×</button>
       <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Imagem anterior">←</button>
-      <img class="lightbox-image viewer-blurred" alt="">
+      <img class="lightbox-image" alt="">
       <button class="lightbox-arrow lightbox-next" type="button" aria-label="Próxima imagem">→</button>
     </div>
     <div class="center" style="margin-top:40px;">
@@ -669,14 +669,14 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
   let category='estudo', index=0;
   const tabs=[...document.querySelectorAll('.preview-tab')], viewer=document.querySelector('.material-viewer'), image=document.querySelector('.viewer-image'), counter=document.querySelector('.viewer-counter'), dots=document.querySelector('.viewer-dots');
   const lightbox=document.querySelector('.lightbox'), lightboxImage=document.querySelector('.lightbox-image');
-  function render(){const items=categories[category].items;index=(index+items.length)%items.length;const item=items[index];image.src=item.src;image.alt=item.alt;counter.textContent=`${index+1} / ${items.length}`;dots.innerHTML=items.map((_,i)=>`<span class="viewer-dot ${i===index?'active':''}"></span>`).join('')}
-  function go(step){index+=step;render();if(!lightbox.hidden){lightboxImage.src=image.src;lightboxImage.alt=image.alt}}
+  function render(){const items=categories[category].items;index=(index+items.length)%items.length;const item=items[index];image.src=item.src;image.alt=item.alt;image.classList.toggle('viewer-blurred',category==='infografico');counter.textContent=`${index+1} / ${items.length}`;dots.innerHTML=items.map((_,i)=>`<span class="viewer-dot ${i===index?'active':''}"></span>`).join('')}
+  function go(step){index+=step;render();if(!lightbox.hidden){lightboxImage.src=image.src;lightboxImage.alt=image.alt;lightboxImage.classList.toggle('viewer-blurred',category==='infografico')}}
   document.querySelector('.viewer-prev').addEventListener('click',()=>go(-1));document.querySelector('.viewer-next').addEventListener('click',()=>go(1));
   tabs.forEach(tab=>tab.addEventListener('click',()=>{category=tab.dataset.category;index=0;tabs.forEach(x=>{const active=x===tab;x.classList.toggle('active',active);x.setAttribute('aria-selected',String(active))});render()}));
   let touchStart=0, dragStart=0;
   viewer.addEventListener('touchstart',e=>{touchStart=e.touches[0].clientX},{passive:true});viewer.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-touchStart;if(Math.abs(d)>40)go(d<0?1:-1)},{passive:true});
   viewer.addEventListener('pointerdown',e=>{if(e.target.closest('.viewer-arrow'))return;dragStart=e.clientX;viewer.setPointerCapture?.(e.pointerId)});viewer.addEventListener('pointerup',e=>{if(e.target.closest('.viewer-arrow'))return;const d=e.clientX-dragStart;if(Math.abs(d)>55)go(d<0?1:-1)});
-  function openLightbox(){lightbox.hidden=false;lightbox.setAttribute('aria-hidden','false');lightboxImage.src=image.src;lightboxImage.alt=image.alt;document.body.style.overflow='hidden'}
+  function openLightbox(){lightbox.hidden=false;lightbox.setAttribute('aria-hidden','false');lightboxImage.src=image.src;lightboxImage.alt=image.alt;lightboxImage.classList.toggle('viewer-blurred',category==='infografico');document.body.style.overflow='hidden'}
   function closeLightbox(){lightbox.hidden=true;lightbox.setAttribute('aria-hidden','true');document.body.style.overflow=''}
   image.addEventListener('click',openLightbox);document.querySelector('.lightbox-close').addEventListener('click',closeLightbox);lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});document.querySelector('.lightbox-prev').addEventListener('click',()=>{go(-1);openLightbox()});document.querySelector('.lightbox-next').addEventListener('click',()=>{go(1);openLightbox()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(!lightbox.hidden&&e.key==='ArrowLeft')go(-1);if(!lightbox.hidden&&e.key==='ArrowRight')go(1)});
   render();
