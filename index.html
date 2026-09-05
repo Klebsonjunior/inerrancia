@@ -77,10 +77,10 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.16; margin
   text-decoration:none; border-radius:8px; border:none; cursor:pointer;
   transition:transform .15s ease, background-color .2s ease, box-shadow .2s ease;
 }
-.btn-wine{ background:var(--wine); color:#fff; box-shadow:0 12px 26px -10px rgba(122,33,48,0.6); }
-.btn-wine:hover{ background:var(--wine-dark); transform:translateY(-2px); }
-.btn-gold{ background:var(--gold); color:#241B08; box-shadow:0 12px 26px -10px rgba(201,162,39,0.55); }
-.btn-gold:hover{ background:var(--gold-soft); transform:translateY(-2px); }
+.btn-cta-light{ background:#146E7D; color:#fff; box-shadow:0 12px 26px -10px rgba(20,110,125,0.55); }
+.btn-cta-light:hover{ background:#0F5866; transform:translateY(-2px); }
+.btn-cta-dark{ background:#4DD0E1; color:#0B2A2E; box-shadow:0 12px 26px -10px rgba(77,208,225,0.4); }
+.btn-cta-dark:hover{ background:#6FDDEB; transform:translateY(-2px); }
 .btn-block{ width:100%; }
 .microcopy{ font-size:14.5px; color:var(--charcoal-soft); margin-top:12px; text-align:center; }
 .section-ink .microcopy, .section-wine .microcopy{ color:rgba(255,255,255,0.62); }
@@ -233,8 +233,12 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.16; margin
 @media (max-width:920px){ .understand-grid{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:520px){ .understand-grid{ grid-template-columns:1fr; } }
 .understand-item{ text-align:left; }
-.understand-num{ font-family:var(--serif); font-weight:700; font-size:16px; color:var(--gold); letter-spacing:.04em; }
-.understand-item h4{ margin-top:6px; font-size:17.5px; }
+.understand-icon{
+  width:44px; height:44px; border-radius:10px;
+  background:rgba(122,33,48,0.07); border:1px solid rgba(122,33,48,0.18);
+  display:flex; align-items:center; justify-content:center; color:var(--wine);
+}
+.understand-item h4{ margin-top:14px; font-size:17.5px; }
 .understand-item p{ margin:6px 0 0; color:var(--charcoal-soft); font-size:15.5px; }
 
 /* ==========================================================
@@ -320,12 +324,14 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.16; margin
 .lote-price{ font-family:var(--serif); font-weight:700; font-size:24px; color:#fff; }
 .lote-date{ font-size:13px; color:rgba(255,255,255,0.55); }
 .lote-badge{ margin-top:10px; font-size:14.5px; font-weight:700; color:var(--wine); }
+.lote-countdown{ margin-top:4px; font-size:13.5px; font-weight:700; color:var(--gold-soft); }
+.hero .lote-countdown{ color:var(--wine); }
 .final-price{
   text-align:center; font-family:var(--serif); font-weight:700; color:var(--gold-soft);
   font-size:clamp(2.4rem,6vw,3.4rem); margin:36px 0 8px;
 }
 .final-price .per{ display:block; font-family:var(--sans); font-weight:600; font-size:15.5px; color:rgba(255,255,255,0.65); margin-top:6px; letter-spacing:.03em; }
-.section-wine .btn-gold{ display:flex; margin:0 auto; }
+.section-wine .btn-cta-dark{ display:flex; margin:0 auto; }
 .section-wine h2{ max-width:22ch; margin:18px auto 0; text-align:center; }
 .section-wine > .container > .center{ text-align:center; }
 
@@ -385,6 +391,27 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.16; margin
 footer{ background:var(--ink); color:rgba(255,255,255,0.55); padding:36px 0; font-size:14.5px; }
 footer .container{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
 footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size:16px; }
+
+/* ==========================================================
+   MICRO-INTERAÇÕES
+========================================================== */
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in-view{ opacity:1; transform:none; }
+
+@keyframes floatInfo2{ 0%,100%{ transform:rotate(-11deg) translateY(0); } 50%{ transform:rotate(-11deg) translateY(-8px); } }
+@keyframes floatInfo1{ 0%,100%{ transform:rotate(9deg) translateY(0); } 50%{ transform:rotate(9deg) translateY(-10px); } }
+@keyframes floatMain{ 0%,100%{ transform:translateX(-50%) rotate(-2deg) translateY(0); } 50%{ transform:translateX(-50%) rotate(-2deg) translateY(-6px); } }
+.sv-info2{ animation:floatInfo2 5s ease-in-out infinite; }
+.sv-info1{ animation:floatInfo1 6s ease-in-out infinite .3s; }
+.sv-main{ animation:floatMain 5.5s ease-in-out infinite .15s; }
+
+.viewer-image{ transition:opacity .16s ease; }
+
+@media (prefers-reduced-motion:reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  .sv-info2, .sv-info1, .sv-main{ animation:none; }
+  .viewer-image{ transition:none; }
+}
 </style>
 </head>
 <body>
@@ -412,9 +439,10 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
         <p class="hero-sub">Entenda o que realmente significa dizer que a Bíblia é inerrante e conheça os fundamentos dessa doutrina de forma clara e fácil de compreender.</p>
         <p class="hero-tension">É fácil afirmar que a Bíblia não erra. Difícil é sustentar essa afirmação diante da primeira pergunta difícil.</p>
         <div class="hero-cta">
-          <a href="#oferta" class="btn btn-wine cta-checkout">QUERO ENTENDER A INERRÂNCIA BÍBLICA</a>
+          <a href="#oferta" class="btn btn-cta-light cta-checkout">QUERO ENTENDER A INERRÂNCIA BÍBLICA</a>
           <div class="hero-price-row"><span class="old">De R$ 67,00</span><span class="new" id="hero-price">por R$ 17</span></div>
           <p class="lote-badge" id="lote-badge"></p>
+          <p class="lote-countdown"></p>
           <p class="microcopy">Acesso imediato por e-mail · Garantia de 7 dias</p>
         </div>
       </div>
@@ -437,7 +465,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
 <!-- ==========================================================
      PROBLEMA
 ========================================================== -->
-<section class="section">
+<section class="section reveal">
   <div class="container identif">
     <span class="eyebrow">Um estudo direto, sem enrolação</span>
     <h2 style="margin-top:18px;">Você acredita na inerrância bíblica. Mas sabe exatamente o que está afirmando?</h2>
@@ -449,7 +477,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
     </ul>
     <p class="identif-close">É fácil afirmar que a Bíblia é inerrante. Mais difícil é entender, com clareza, por que isso é verdade.</p>
     <div style="margin-top:34px;">
-      <a href="#oferta" class="btn btn-wine cta-checkout">Quero resolver isso agora</a>
+      <a href="#oferta" class="btn btn-cta-light cta-checkout">Quero resolver isso agora</a>
     </div>
   </div>
 </section>
@@ -457,18 +485,18 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
 <!-- ==========================================================
      O QUE VOCÊ VAI ENTENDER
 ========================================================== -->
-<section class="section section-paper2">
+<section class="section section-paper2 reveal">
   <div class="container">
     <div class="center max-62">
       <span class="tag">O que este estudo esclarece</span>
       <h2 style="margin-top:18px;">Ao final, você vai entender</h2>
     </div>
     <div class="understand-grid">
-      <div class="understand-item"><span class="understand-num">01</span><h4>Inerrância de verdade</h4><p>O que a doutrina afirma e o que ela não afirma.</p></div>
-      <div class="understand-item"><span class="understand-num">02</span><h4>Autoria humana</h4><p>Como Deus usou homens reais sem perder a perfeição do texto.</p></div>
-      <div class="understand-item"><span class="understand-num">03</span><h4>Manuscritos e variantes</h4><p>Por que a ausência dos originais não invalida a inerrância.</p></div>
-      <div class="understand-item"><span class="understand-num">04</span><h4>Aparentes contradições</h4><p>Como diferenças entre relatos não significam erro.</p></div>
-      <div class="understand-item"><span class="understand-num">05</span><h4>Fundamentos da doutrina</h4><p>A base teológica e histórica que sustenta tudo isso.</p></div>
+      <div class="understand-item"><div class="understand-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div><h4>Inerrância de verdade</h4><p>O que a doutrina afirma e o que ela não afirma.</p></div>
+      <div class="understand-item"><div class="understand-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4Z"/><path d="M14 6l3 3"/></svg></div><h4>Autoria humana</h4><p>Como Deus usou homens reais sem perder a perfeição do texto.</p></div>
+      <div class="understand-item"><div class="understand-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h11a2 2 0 0 1 2 2v13a1 1 0 0 1-1.6.8L15 18H8"/><path d="M6 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2"/><path d="M9 8h6M9 11.5h6"/></svg></div><h4>Manuscritos e variantes</h4><p>Por que a ausência dos originais não invalida a inerrância.</p></div>
+      <div class="understand-item"><div class="understand-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10"/><path d="M5 7l-3 6a4 4 0 0 0 6 0l-3-6ZM19 7l-3 6a4 4 0 0 0 6 0l-3-6Z"/><path d="M3 7h18"/></svg></div><h4>Aparentes contradições</h4><p>Como diferenças entre relatos não significam erro.</p></div>
+      <div class="understand-item"><div class="understand-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16"/><path d="M4 9l8-5 8 5"/><path d="M6 9v9M10 9v9M14 9v9M18 9v9"/></svg></div><h4>Fundamentos da doutrina</h4><p>A base teológica e histórica que sustenta tudo isso.</p></div>
     </div>
   </div>
 </section>
@@ -476,48 +504,48 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
 <!-- ==========================================================
      O MATERIAL
 ========================================================== -->
-<section class="section-ink">
+<section class="section-ink reveal">
   <div class="container">
     <span class="tag">Tudo incluso no acesso</span>
     <h2 style="margin-top:18px; max-width:22ch;">O material completo: estudo, infográficos, vídeo e slides</h2>
     <div class="receive-list">
       <div class="receive-row">
-        <div class="receive-icon">📖</div>
+        <div class="receive-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5C4 3.67 4.67 3 5.5 3H12v18H5.5A1.5 1.5 0 0 1 4 19.5v-15Z"/><path d="M20 4.5c0-.83-.67-1.5-1.5-1.5H12v18h6.5c.83 0 1.5-.67 1.5-1.5v-15Z"/></svg></div>
         <div class="receive-body">
           <div class="receive-top"><h4>Estudo Completo: A Inerrância Bíblica</h4><span class="badge badge-incluso">Principal</span></div>
           <p>8 capítulos, do que significa dizer que a Bíblia é a Palavra de Deus até as principais objeções à inerrância.</p>
         </div>
       </div>
       <div class="receive-row">
-        <div class="receive-icon">🖼</div>
+        <div class="receive-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/></svg></div>
         <div class="receive-body">
           <div class="receive-top"><h4>Infográfico: O Fundamento da Confiança</h4><span class="badge badge-incluso">Principal</span></div>
           <p>Os 5 pontos centrais da doutrina, ilustrados, para visualizar o argumento de forma rápida.</p>
         </div>
       </div>
       <div class="receive-row">
-        <div class="receive-icon">🖼</div>
+        <div class="receive-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg></div>
         <div class="receive-body">
           <div class="receive-top"><h4>Guia Visual: Termos, Fundamentos e Objeções</h4><span class="badge badge-incluso">Principal</span></div>
           <p>Diferença entre inspiração, infalibilidade e inerrância, os três fundamentos da doutrina e respostas às objeções mais comuns.</p>
         </div>
       </div>
       <div class="receive-row">
-        <div class="receive-icon">🖼</div>
+        <div class="receive-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16"/><path d="M6 21V9M18 21V9"/><path d="M4 9l8-5 8 5"/></svg></div>
         <div class="receive-body">
           <div class="receive-top"><h4>Infográfico: O Fundamento da Verdade</h4><span class="badge badge-incluso">Principal</span></div>
           <p>Inspiração verbal plenária, inerrância vs. infalibilidade, os três pilares de defesa da doutrina e a transmissão do texto, de autógrafos a apógrafos.</p>
         </div>
       </div>
       <div class="receive-row">
-        <div class="receive-icon">▶</div>
+        <div class="receive-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5-6-3.5Z" fill="currentColor" stroke="none"/></svg></div>
         <div class="receive-body">
           <div class="receive-top"><h4>Vídeo explicativo</h4><span class="badge badge-bonus">Bônus</span></div>
           <p>Aula em vídeo com o resumo do conteúdo do estudo, para revisar sem precisar reler tudo.</p>
         </div>
       </div>
       <div class="receive-row">
-        <div class="receive-icon">▤</div>
+        <div class="receive-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg></div>
         <div class="receive-body">
           <div class="receive-top"><h4>Apresentação de slides</h4><span class="badge badge-bonus">Bônus</span></div>
           <p>Pronta para levar o estudo a um grupo, célula ou classe, sem precisar montar nada do zero.</p>
@@ -548,7 +576,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
       <button class="lightbox-arrow lightbox-next" type="button" aria-label="Próxima imagem">→</button>
     </div>
     <div class="center" style="margin-top:40px;">
-      <a href="#oferta" class="btn btn-gold cta-checkout">Quero acessar o material completo</a>
+      <a href="#oferta" class="btn btn-cta-dark cta-checkout">Quero acessar o material completo</a>
       <p class="microcopy">De R$ 67,00 por R$ 17 · Garantia de 7 dias</p>
     </div>
   </div>
@@ -591,8 +619,9 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
     </div>
 
     <div class="final-price"><span id="final-price-value">R$ 17</span><span class="per">pagamento único</span></div>
+    <p class="lote-countdown center"></p>
 
-    <a href="#" class="btn btn-gold cta-checkout">Quero acessar o material completo</a>
+    <a href="#" class="btn btn-cta-dark cta-checkout">Quero acessar o material completo</a>
     <p class="microcopy center">Acesso imediato após a confirmação do pagamento · Garantia de 7 dias</p>
   </div>
 </section>
@@ -600,7 +629,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
 <!-- ==========================================================
      FAQ
 ========================================================== -->
-<section class="section">
+<section class="section reveal">
   <div class="container">
     <div class="faq-head">
       <span class="tag">Perguntas frequentes</span>
@@ -638,7 +667,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
 <!-- ==========================================================
      CREDIBILIDADE
 ========================================================== -->
-<section class="section section-paper2">
+<section class="section section-paper2 reveal">
   <div class="container credibility">
     <span class="eyebrow">Como este material foi construído</span>
     <p>Organizado a partir dos fundamentos teológicos, bíblicos e históricos da inerrância, até as objeções mais recorrentes contra ela.</p>
@@ -676,13 +705,24 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
   document.getElementById('year').textContent = new Date().getFullYear();
 
   (function(){
+    if(typeof IntersectionObserver === 'undefined'){ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in-view')); return; }
+    try{
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
+      }, {threshold:0.12});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    }catch(err){ document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in-view')); }
+  })();
+
+  (function(){
+   try{
     const now = new Date();
     const fimLote1 = new Date('2026-09-08T23:59:59-03:00');
     const fimLote2 = new Date('2026-09-20T23:59:59-03:00');
-    let loteAtivo, preco;
-    if(now <= fimLote1){ loteAtivo = 1; preco = 17; }
-    else if(now <= fimLote2){ loteAtivo = 2; preco = 27; }
-    else { loteAtivo = 3; preco = 67; }
+    let loteAtivo, preco, deadline;
+    if(now <= fimLote1){ loteAtivo = 1; preco = 17; deadline = fimLote1; }
+    else if(now <= fimLote2){ loteAtivo = 2; preco = 27; deadline = fimLote2; }
+    else { loteAtivo = 3; preco = 67; deadline = null; }
 
     document.querySelectorAll('.lote-card').forEach(card => {
       const n = Number(card.dataset.lote);
@@ -702,6 +742,20 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
       else if(loteAtivo === 2) loteBadge.textContent = `Preço do 2º lote válido até 20/09`;
       else loteBadge.textContent = `Preço do 3º lote`;
     }
+
+    function tickCountdown(){
+      if(!deadline) return;
+      const diff = deadline - new Date();
+      if(diff <= 0){ location.reload(); return; }
+      const d = Math.floor(diff/86400000);
+      const h = Math.floor(diff/3600000)%24;
+      const m = Math.floor(diff/60000)%60;
+      const txt = d > 0 ? `Preço sobe em ${d}d ${h}h` : (h > 0 ? `Preço sobe em ${h}h ${m}min` : `Preço sobe em ${m}min`);
+      document.querySelectorAll('.lote-countdown').forEach(el => el.textContent = txt);
+    }
+    tickCountdown();
+    setInterval(tickCountdown, 30000);
+   }catch(err){ console.error('lote/preco:', err); }
   })();
   document.querySelectorAll('.faq-item').forEach(item => {
     const btn=item.querySelector('.faq-q'), ans=item.querySelector('.faq-a');
@@ -718,7 +772,8 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
   let category='estudo', index=0;
   const tabs=[...document.querySelectorAll('.preview-tab')], viewer=document.querySelector('.material-viewer'), image=document.querySelector('.viewer-image'), counter=document.querySelector('.viewer-counter'), dots=document.querySelector('.viewer-dots');
   const lightbox=document.querySelector('.lightbox'), lightboxImage=document.querySelector('.lightbox-image');
-  function render(){const items=categories[category].items;index=(index+items.length)%items.length;const item=items[index];image.src=item.src;image.alt=item.alt;image.classList.toggle('viewer-blurred',category==='infografico');counter.textContent=`${index+1} / ${items.length}`;dots.innerHTML=items.map((_,i)=>`<span class="viewer-dot ${i===index?'active':''}"></span>`).join('')}
+  let firstRender=true;
+  function render(){const items=categories[category].items;index=(index+items.length)%items.length;const item=items[index];const apply=()=>{image.src=item.src;image.alt=item.alt;image.classList.toggle('viewer-blurred',category==='infografico');image.style.opacity=1};if(firstRender){apply();firstRender=false}else{image.style.opacity=0;setTimeout(apply,140)}counter.textContent=`${index+1} / ${items.length}`;dots.innerHTML=items.map((_,i)=>`<span class="viewer-dot ${i===index?'active':''}"></span>`).join('')}
   function go(step){index+=step;render();if(!lightbox.hidden){lightboxImage.src=image.src;lightboxImage.alt=image.alt;lightboxImage.classList.toggle('viewer-blurred',category==='infografico')}}
   document.querySelector('.viewer-prev').addEventListener('click',()=>go(-1));document.querySelector('.viewer-next').addEventListener('click',()=>go(1));
   tabs.forEach(tab=>tab.addEventListener('click',()=>{category=tab.dataset.category;index=0;tabs.forEach(x=>{const active=x===tab;x.classList.toggle('active',active);x.setAttribute('aria-selected',String(active))});render()}));
