@@ -221,6 +221,21 @@ h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.16; margin
 .badge{ font-size:10.5px; font-weight:700; letter-spacing:.06em; padding:4px 10px; border-radius:100px; text-transform:uppercase; }
 .badge-incluso{ background:var(--wine); color:#fff; }
 .badge-bonus{ background:var(--paper-2); color:var(--charcoal-soft); border:1px solid rgba(42,33,29,0.15); }
+.section-ink .receive-row{ border-bottom-color:rgba(255,255,255,0.14); }
+.section-ink .receive-icon{ background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.22); color:var(--gold-soft); }
+.section-ink .receive-body p{ color:rgba(255,255,255,0.68); }
+.section-ink .badge-bonus{ background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.72); border-color:rgba(255,255,255,0.2); }
+
+/* ==========================================================
+   O QUE VOCÊ VAI ENTENDER
+========================================================== */
+.understand-grid{ margin-top:44px; display:grid; grid-template-columns:repeat(5,1fr); gap:24px; }
+@media (max-width:920px){ .understand-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px){ .understand-grid{ grid-template-columns:1fr; } }
+.understand-item{ text-align:left; }
+.understand-num{ font-family:var(--serif); font-weight:700; font-size:15px; color:var(--gold); letter-spacing:.04em; }
+.understand-item h4{ margin-top:6px; font-size:17.5px; }
+.understand-item p{ margin:6px 0 0; color:var(--charcoal-soft); font-size:14px; }
 
 /* ==========================================================
    QUALIFYING / IDENTIFICAÇÃO
@@ -325,10 +340,10 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
 
 <div class="ticker-wrap">
   <div class="ticker">
-    <span>OFERTA POR TEMPO LIMITADO</span>
+    <span>PAGAMENTO ÚNICO, SEM ASSINATURA</span>
     <span>ACESSO IMEDIATO APÓS A COMPRA</span>
     <span>ESTUDO COMPLETO + 3 INFOGRÁFICOS + VÍDEO + SLIDES</span>
-    <span>OFERTA POR TEMPO LIMITADO</span>
+    <span>PAGAMENTO ÚNICO, SEM ASSINATURA</span>
     <span>ACESSO IMEDIATO APÓS A COMPRA</span>
     <span>ESTUDO COMPLETO + 3 INFOGRÁFICOS + VÍDEO + SLIDES</span>
   </div>
@@ -343,7 +358,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
       <div class="hero-copy">
         <span class="eyebrow">Material de estudo bíblico</span>
         <h1>Você diz que a Bíblia é <em>inerrante</em>. Mas sabe explicar por quê?</h1>
-        <p class="hero-sub">Um estudo completo sobre a doutrina da inerrância bíblica: seus fundamentos teológicos, sua base histórica e as respostas às objeções mais comuns, como manuscritos, variantes e aparentes contradições.</p>
+        <p class="hero-sub">Entenda o que realmente significa dizer que a Bíblia é inerrante e conheça os fundamentos dessa doutrina de forma clara e fácil de compreender.</p>
         <p class="hero-tension">É fácil afirmar que a Bíblia não erra. Difícil é sustentar essa afirmação diante da primeira pergunta difícil.</p>
         <div class="hero-cta">
           <a href="#oferta" class="btn btn-wine cta-checkout">QUERO ENTENDER A INERRÂNCIA BÍBLICA</a>
@@ -382,46 +397,17 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
 </section>
 
 <!-- ==========================================================
-     BÔNUS INCLUSOS
-========================================================== -->
-<section class="section-ink section-tight">
-  <div class="container">
-    <span class="tag">Bônus inclusos</span>
-    <h2 style="margin-top:18px; max-width:20ch;">Além do estudo e dos infográficos, você também recebe</h2>
-    <div class="bonus-grid">
-      <div class="bonus-card">
-        <div class="bonus-icon">▶</div>
-        <h4>Vídeo explicativo</h4>
-        <p>Uma aula em vídeo com o resumo do conteúdo do estudo, para revisar sem precisar reler tudo.</p>
-        <span class="bonus-tag">Bônus 1</span>
-      </div>
-      <div class="bonus-card">
-        <div class="bonus-icon">▤</div>
-        <h4>Apresentação de slides</h4>
-        <p>Pronta para levar o estudo a um grupo, célula ou classe, sem precisar montar nada do zero.</p>
-        <span class="bonus-tag">Bônus 2</span>
-      </div>
-    </div>
-    <div class="center" style="margin-top:40px;">
-      <a href="#oferta" class="btn btn-gold cta-checkout">Quero entender de uma vez</a>
-      <p class="microcopy">De R$ 161,60 por R$ 27,90 · Garantia de 7 dias</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================================
-     IDENTIFICAÇÃO / DOR
+     PROBLEMA
 ========================================================== -->
 <section class="section">
   <div class="container identif">
     <span class="eyebrow">Um estudo direto, sem enrolação</span>
     <h2 style="margin-top:18px;">Você acredita na inerrância bíblica. Mas sabe exatamente o que está afirmando?</h2>
     <ul class="identif-list">
-      <li>Se a Bíblia foi escrita por homens, como ela pode ser inerrante?</li>
-      <li>Os manuscritos originais não existem mais. Então, o que exatamente é inerrante?</li>
-      <li>Existem variantes entre os manuscritos. Isso significa que o texto foi alterado?</li>
-      <li>Diferenças entre relatos dos Evangelhos são contradições?</li>
-      <li>Inerrância, infalibilidade e inspiração são a mesma coisa?</li>
+      <li>Se homens escreveram a Bíblia, como ela pode ser inerrante?</li>
+      <li>Se existem diferenças entre manuscritos, o texto foi alterado?</li>
+      <li>Diferenças entre relatos significam contradição?</li>
+      <li>Se não temos os originais, como podemos falar em inerrância?</li>
     </ul>
     <p class="identif-close">É fácil afirmar que a Bíblia é inerrante. Mais difícil é entender, com clareza, por que isso é verdade.</p>
     <div style="margin-top:34px;">
@@ -431,12 +417,31 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
 </section>
 
 <!-- ==========================================================
-     O QUE VOCÊ RECEBE
+     O QUE VOCÊ VAI ENTENDER
 ========================================================== -->
 <section class="section section-paper2">
   <div class="container">
+    <div class="center max-62">
+      <span class="tag">O que este estudo esclarece</span>
+      <h2 style="margin-top:18px;">Ao final, você vai entender</h2>
+    </div>
+    <div class="understand-grid">
+      <div class="understand-item"><span class="understand-num">01</span><h4>Inerrância de verdade</h4><p>O que a doutrina afirma e o que ela não afirma.</p></div>
+      <div class="understand-item"><span class="understand-num">02</span><h4>Autoria humana</h4><p>Como Deus usou homens reais sem perder a perfeição do texto.</p></div>
+      <div class="understand-item"><span class="understand-num">03</span><h4>Manuscritos e variantes</h4><p>Por que a ausência dos originais não invalida a inerrância.</p></div>
+      <div class="understand-item"><span class="understand-num">04</span><h4>Aparentes contradições</h4><p>Como diferenças entre relatos não significam erro.</p></div>
+      <div class="understand-item"><span class="understand-num">05</span><h4>Fundamentos da doutrina</h4><p>A base teológica e histórica que sustenta tudo isso.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     O MATERIAL
+========================================================== -->
+<section class="section-ink">
+  <div class="container">
     <span class="tag">Tudo incluso no acesso</span>
-    <h2 style="margin-top:18px;">O que você recebe</h2>
+    <h2 style="margin-top:18px; max-width:22ch;">O material completo: estudo, infográficos, vídeo e slides</h2>
     <div class="receive-list">
       <div class="receive-row">
         <div class="receive-icon">📖</div>
@@ -470,43 +475,20 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
         <div class="receive-icon">▶</div>
         <div class="receive-body">
           <div class="receive-top"><h4>Vídeo explicativo</h4><span class="badge badge-bonus">Bônus</span></div>
-          <p>Aula em vídeo com o resumo do conteúdo do estudo.</p>
+          <p>Aula em vídeo com o resumo do conteúdo do estudo, para revisar sem precisar reler tudo.</p>
         </div>
       </div>
       <div class="receive-row">
         <div class="receive-icon">▤</div>
         <div class="receive-body">
           <div class="receive-top"><h4>Apresentação de slides</h4><span class="badge badge-bonus">Bônus</span></div>
-          <p>Pronta para levar o estudo a um grupo, célula ou classe.</p>
+          <p>Pronta para levar o estudo a um grupo, célula ou classe, sem precisar montar nada do zero.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ==========================================================
-     CARD DE PREÇO (meio da página)
-========================================================== -->
-<section class="section">
-  <div class="container">
-    <div class="offer-card">
-      <div class="offer-card-visual">
-        <img src="inerrancia-assets/ebook-capa.jpg" alt="Capa do estudo A Inerrância Bíblica">
-      </div>
-      <div class="offer-card-copy">
-        <span class="eyebrow">Garanta seu acesso</span>
-        <h3 style="margin-top:14px; font-size:26px;">Tudo o que você precisa para entender e explicar a inerrância</h3>
-        <ul class="offer-checklist">
-          <li>Estudo completo (8 capítulos)</li>
-          <li>3 infográficos visuais</li>
-          <li>Vídeo explicativo</li>
-          <li>Apresentação de slides</li>
-          <li>Acesso imediato após a confirmação</li>
-        </ul>
-        <div class="offer-price-row"><span class="old">R$ 161,60</span><span class="new">R$ 27,90</span></div>
-        <a href="#oferta" class="btn btn-wine btn-block cta-checkout">Quero garantir meu acesso</a>
-        <p class="microcopy">Pagamento único · sem assinatura</p>
-      </div>
+    <div class="center" style="margin-top:40px;">
+      <a href="#oferta" class="btn btn-gold cta-checkout">Quero acessar o material completo</a>
+      <p class="microcopy">De R$ 161,60 por R$ 27,90 · Garantia de 7 dias</p>
     </div>
   </div>
 </section>
@@ -514,12 +496,12 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
 <!-- ==========================================================
      VITRINE
 ========================================================== -->
-<section class="section-ink">
+<section class="section">
   <div class="container">
     <div class="showcase-head">
       <span class="tag">Conheça o material</span>
       <h2 style="margin-top:18px;">Veja o que está incluído, de verdade</h2>
-      <p style="margin-top:14px; color:rgba(255,255,255,0.68);">Um material pensado para ser lido, visualizado e consultado depois.</p>
+      <p style="margin-top:14px; color:var(--charcoal-soft);">Um material pensado para ser lido, visualizado e consultado depois.</p>
     </div>
     <div class="preview-tabs" role="tablist" aria-label="Categorias do material">
       <button class="preview-tab active" type="button" role="tab" aria-selected="true" data-category="estudo">ESTUDO</button>
@@ -540,7 +522,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
       <button class="lightbox-arrow lightbox-next" type="button" aria-label="Próxima imagem">→</button>
     </div>
     <div class="showcase-cta">
-      <a href="#oferta" class="btn btn-gold cta-checkout">Ver a oferta completa</a>
+      <a href="#oferta" class="btn btn-wine cta-checkout">Ver a oferta completa</a>
     </div>
   </div>
 </section>
@@ -614,7 +596,7 @@ footer .fname{ font-family:var(--serif); color:rgba(255,255,255,0.85); font-size
 <section class="section section-paper2">
   <div class="container credibility">
     <span class="eyebrow">Como este material foi construído</span>
-    <p>O conteúdo foi organizado a partir do estudo da doutrina da inerrância bíblica desde seus fundamentos teológicos, bíblicos e históricos, até as objeções mais recorrentes levantadas contra ela. O objetivo não foi produzir um material apologético defensivo, mas reunir, em um único lugar, texto, recursos visuais e vídeo de apoio, para que você entenda o que está afirmando quando diz que confia nas Escrituras.</p>
+    <p>Organizado a partir dos fundamentos teológicos, bíblicos e históricos da inerrância, até as objeções mais recorrentes contra ela.</p>
   </div>
 </section>
 
