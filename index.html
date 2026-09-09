@@ -471,6 +471,7 @@ src="https://www.facebook.com/tr?id=1538792521116054&ev=PageView&noscript=1"
 
 <div class="ticker-wrap">
   <div class="ticker">
+    <span>PROMOÇÃO: R$ 10,00 SOMENTE HOJE 09/09 · AMANHÃ R$ 27,00</span>
     <span>PAGAMENTO ÚNICO, SEM ASSINATURA</span>
     <span>ACESSO IMEDIATO APÓS A COMPRA</span>
     <span>ESTUDO COMPLETO + 3 INFOGRÁFICOS + VÍDEO + SLIDES</span>
@@ -493,7 +494,7 @@ src="https://www.facebook.com/tr?id=1538792521116054&ev=PageView&noscript=1"
         <p class="hero-tension">É fácil afirmar que a Bíblia não erra. Difícil é sustentar essa afirmação diante da primeira pergunta difícil.</p>
         <div class="hero-cta">
           <a href="#oferta" class="btn btn-cta-light cta-checkout">QUERO ENTENDER A INERRÂNCIA BÍBLICA</a>
-          <div class="hero-price-row"><span class="old">De R$ 67,00</span><span class="new" id="hero-price">por R$ 17</span></div>
+          <div class="hero-price-row"><span class="old">De R$ 67,00</span><span class="new" id="hero-price">por R$ 10</span></div>
           <p class="lote-badge" id="lote-badge"></p>
           <p class="lote-countdown"></p>
           <p class="microcopy">Acesso imediato por e-mail · Garantia de 7 dias</p>
@@ -656,13 +657,13 @@ src="https://www.facebook.com/tr?id=1538792521116054&ev=PageView&noscript=1"
     <div class="lote-grid" id="lote-grid">
       <div class="lote-card" data-lote="1">
         <span class="lote-label">1º lote</span>
-        <span class="lote-price">R$ 17</span>
-        <span class="lote-date">até 08/09</span>
+        <span class="lote-price">R$ 10</span>
+        <span class="lote-date">somente hoje 09/09</span>
       </div>
       <div class="lote-card" data-lote="2">
         <span class="lote-label">2º lote</span>
         <span class="lote-price">R$ 27</span>
-        <span class="lote-date">até 20/09</span>
+        <span class="lote-date">a partir de 10/09</span>
       </div>
       <div class="lote-card" data-lote="3">
         <span class="lote-label">3º lote</span>
@@ -671,7 +672,7 @@ src="https://www.facebook.com/tr?id=1538792521116054&ev=PageView&noscript=1"
       </div>
     </div>
 
-    <div class="final-price"><span id="final-price-value">R$ 17</span><span class="per">pagamento único</span></div>
+    <div class="final-price"><span id="final-price-value">R$ 10</span><span class="per">pagamento único</span></div>
     <p class="lote-countdown center"></p>
 
     <a href="#" class="btn btn-cta-dark cta-checkout">Quero acessar o material completo</a>
@@ -804,7 +805,7 @@ src="https://www.facebook.com/tr?id=1538792521116054&ev=PageView&noscript=1"
 </footer>
 
 <script>
-  const CHECKOUT_URL = "https://pay.kiwify.com.br/suKSeLg";
+  const CHECKOUT_URL = "https://pay.kiwify.com.br/4ZiIikc";
   document.querySelectorAll('.cta-checkout').forEach(el => el.setAttribute('href', CHECKOUT_URL));
   document.querySelectorAll('.cta-checkout').forEach(el => el.addEventListener('click', function(){
     if(typeof fbq === 'function'){ fbq('track', 'InitiateCheckout', {content_name: 'A Inerrância Bíblica', currency: 'BRL'}); }
@@ -824,10 +825,10 @@ src="https://www.facebook.com/tr?id=1538792521116054&ev=PageView&noscript=1"
   (function(){
    try{
     const now = new Date();
-    const fimLote1 = new Date('2026-09-08T23:59:59-03:00');
+    const fimLote1 = new Date('2026-09-09T23:59:59-03:00');
     const fimLote2 = new Date('2026-09-20T23:59:59-03:00');
     let loteAtivo, preco, deadline;
-    if(now <= fimLote1){ loteAtivo = 1; preco = 17; deadline = fimLote1; }
+    if(now <= fimLote1){ loteAtivo = 1; preco = 10; deadline = fimLote1; }
     else if(now <= fimLote2){ loteAtivo = 2; preco = 27; deadline = fimLote2; }
     else { loteAtivo = 3; preco = 67; deadline = null; }
 
@@ -845,7 +846,7 @@ src="https://www.facebook.com/tr?id=1538792521116054&ev=PageView&noscript=1"
     if(heroPrice) heroPrice.textContent = `por R$ ${preco}`;
     if(finalPrice) finalPrice.textContent = `R$ ${preco}`;
     if(loteBadge){
-      if(loteAtivo === 1) loteBadge.textContent = `Preço do 1º lote válido até 08/09`;
+      if(loteAtivo === 1) loteBadge.textContent = `Promoção válida somente hoje 09/09`;
       else if(loteAtivo === 2) loteBadge.textContent = `Preço do 2º lote válido até 20/09`;
       else loteBadge.textContent = `Preço do 3º lote`;
     }
